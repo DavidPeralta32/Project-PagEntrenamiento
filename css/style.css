@@ -1,9 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     background-color: lightcyan ;
     /* opacity: 0.2; */
 }
 .titulo{
-    text-align: center;
+    text-align:center ;
+    color:black;
+     text-justify: auto;
 }
 #encabezado{
     margin-bottom: -25px;
@@ -13,15 +20,10 @@ body{
     background-repeat: no-repeat;
     width: 100%;
     height: 210px;
-    margin: 0;
-    text-align: center;
-    color: black;
+    
 
 }
-#menu{
+.container-titulo-acerca-de{
     text-align: center;
-    margin-top: -25px;
-}
-.informacion{
-    text-align: left;
+    color: black;
 }
