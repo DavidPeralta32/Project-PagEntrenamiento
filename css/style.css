@@ -1,0 +1,27 @@
+body{
+    background-color: lightcyan ;
+    /* opacity: 0.2; */
+}
+.titulo{
+    text-align: center;
+}
+#encabezado{
+    margin-bottom: -25px;
+    background-image: url("../img/TecNM_logo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 210px;
+    margin: 0;
+    text-align: center;
+    color: black;
+
+}
+#menu{
+    text-align: center;
+    margin-top: -25px;
+}
+.informacion{
+    text-align: left;
+}
