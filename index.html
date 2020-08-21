@@ -10,34 +10,24 @@
 </head>
 <body>
 <header>
-  <!-- jumbotron aqui va el logo del tec y el encabezado -->
-    <div class="row" id="encabezado">
-      <div class="col">
-        <div class="titulo">
-          <h1>Entrenando</h1>
-        </div>
-        </div>
-     </div>
-   <!-- Barra de navegacion -->
-   <section class="menu">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
-          <!-- Logo -->
-          <a class="navbar-brand" href="#">Logo</a>
-        
+   <!-- Menu de navegacion -->
+      <nav class="navbar navbar-expand-sm  navbar-dark" >
+        <section class="contenedor nav">
+         <!-- jumbotron aqui va el logo del tec y el encabezado -->
+          <div class="logo">
+            <img src="img/TecNM_logo.png" alt="">
+          </div>
           <!-- Links -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Quienes somos</a>
+              <a class="nav-link  text-dark" href="#">Quienes somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Entrenadores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Acondicionamiento fisico</a>
+              <a class="nav-link text-dark" href="#">Entrenadores</a>
             </li>
             <!-- Menu desplegable -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              <a class="nav-link dropdown-toggle  text-dark" href="#" id="navbardrop" data-toggle="dropdown">
                 Entrenar
               </a>
               <div class="dropdown-menu">
@@ -47,22 +37,72 @@
                 <a class="dropdown-item" href="#">Jugadas</a>
               </div>
             </li>
+            <li class="nav-item">
+              <a class="nav-link  text-dark" href="#">Acondicionamiento fisico</a>
+            </li>
           </ul>
-        </nav>
-   </section>  
+          <div class="hamburguer">
+            <i class="fas fa-bars"></i>
+        </div>
+        </section> 
+      </nav>
 </header>
-<section class="acerca-de">
-  <div class="container-titulo-acerca-de">
-    <h1><strong>Entrenamiento</strong> </h1>
-    <h3> <strong> Escuela de entramiento de basquetbol.......................</strong></h3>
-  </div>
-</section>
+<!-- contenedor de la seccion de acerca de la pag web -->
+<div class="contendor1">
+  <section class="acerca-de">
+    <section class="textos-acerca-de">
+      <h1 class="titulo"><strong>Entrenamiento</strong> </h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In vel aperiam possimus similique, accusamus facilis inventore quidem nisi sapiente optio blanditiis molestias eius?</p>
+    </section> 
+    <img src="img/EQUIPO2.jpg" alt="">
+  </section>
+</div>
+
+<!-- Contenedor de la seccion de articulos o nuevos post -->
 <section class="articulos">
-  <div class="container-articulos">
-    <h1>Informacion...</h1>
-    <p>Se agregaran post nuevo sobre mas videos o proximos videos a subir</p>
+  <div class="contenedor2">
+      <h2 class="titulo">Proximos ejercicios</h2>
+      <div class="contenedor-articulo">
+          <div class="articulo">
+            <i class="fas fa-basketball-ball"></i>
+            <h3>new post</h3> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quas voluptatum odit</p>
+            <a href="#">Proximanente....</a> 
+          </div>
+          <div class="articulo">
+            <i class="fas fa-basketball-ball"></i>
+              <h3>new post</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quas voluptatum odit</p>
+              <a href="#">Proximamente....</a> 
+            </div>
+            <div class="articulo">
+              <i class="fas fa-basketball-ball"></i>
+              <h3>new post</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quas voluptatum odit</p>
+              <a href="#">Proximamente....</a> 
+            </div>
+            <div class="articulo">
+              <i class="fas fa-basketball-ball"></i>
+              <h3>new post</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quas voluptatum odit</p>
+              <a href="#">Proximamente....</a> 
+            </div>
+            <div class="articulo">
+              <i class="fas fa-basketball-ball"></i> 
+              <h3>new post</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quas voluptatum odit</p>
+              <a href="#">Proximamente....</a> 
+            </div>
+            <div class="articulo">
+              <i class="fas fa-basketball-ball"></i>
+              <h3>new post</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quas voluptatum odit</p>
+              <a href="#">Proximanete....</a> 
+            </div>
+      </div>
   </div>
 </section>
+<!-- Contendor de la seccion de publicaciones -->
 <section class="publicaciones">
   <div class="container-publicaciones">
     <h1>Publicaciones usuarios</h1>
@@ -70,9 +110,25 @@
     <img src="img/basquet.svg" alt="">
   </div>
 </section>
+<!-- Footer para las redes sociales -->
+<footer>
+  <div class="partfooter">
+    <img src="img/TecNM_logo.png" alt="">
+  </div>
+  <div class="partfooter">
+    <h4>Redes Sociales</h4>
+    <div class="social-media">
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-youtube"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-twitter-square"></i>
+  </div>
+  </div>
+</footer>
 
     
 <script src="assets/jqry/jquery-3.4.1.min.js"></script>
 <script src="assets/bt4/js/bootstrap.min.js"></script> 
+<script src="https://kit.fontawesome.com/32258d33f0.js" crossorigin="anonymous"></script>
 </body>
 </html>

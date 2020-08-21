@@ -1,29 +1,180 @@
 *{
-    margin: 0;
+    margin: 0px;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    background-color: lightcyan ;
-    /* opacity: 0.2; */
+    /* background-color: lightcyan ; */
 }
-.titulo{
-    text-align:center ;
-    color:black;
-     text-justify: auto;
+.contenedor1{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+} 
+.contenedor2{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 60px 0;
 }
-#encabezado{
-    margin-bottom: -25px;
-    background-image: url("../img/TecNM_logo.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* menu de navegacion */
+header::before{
+    content: "";
+    display: block;
+    margin-bottom: 0px;
+}
+
+nav{
     width: 100%;
-    height: 210px;
+    height: 80px;
+    background: #ffff;
+    border-bottom: 1px solid transparent;
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+    position: fixed;
+    top: 0;
+    z-index:100 ;
+    /* transition: ease-in-out 0.5s; */
+
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    align-items: center;
+}
+
+.nav .logo{
+    height: 80px;
     
 
 }
-.container-titulo-acerca-de{
-    text-align: center;
-    color: black;
+.nav .logo img{
+    height: 100%;
+    vertical-align: top;
 }
+.nav .
+
+.enlaces-header{
+    font-weight: 300;
+
+}
+.nav .enlaces-header a{
+    color:black ;
+    text-decoration: none;
+    margin-left: 20px;
+
+}
+
+.hamburguer{
+    width: 80px;
+    height: 80px;
+    display: none;
+    text-align: center;
+    z-index: 100;
+    cursor: pointer;
+    /* transition: colot 0.5s ease-in; */
+}
+.hamburguer > i{
+    font-size: 25px;
+    line-height: 80px;
+
+}
+.titulo{
+    color:black;
+     text-justify: auto;
+     font-size: 50px;
+}
+.acerca-de{
+    width: 95%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acerca-de> img{
+    width: 550px;
+    animation: ease-in animat 1s;
+    align-items: center;
+
+}
+
+@keyframes animat{
+    0%{
+        transform: scale(0);
+    }100%{
+        transform: scale(1);
+    }
+}
+.textos-acerca-de{
+    margin: 0 0 0 30px;
+}
+.acerca-de p{
+    font-weight: 100 ;
+    margin-top: 14px;
+    color:black;
+}
+
+/* Articulos */
+
+.articulos{
+    background:#f2f2f2 ;
+}
+.contenedor-articulo{
+display: flex;
+flex-wrap: wrap;
+margin-top: 60px;
+justify-content: space-around;
+}
+
+.articulo{
+    width: 29%;
+    background: #ffff;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 45px 30px 60px 30px;
+    transition: 0.5s;
+}
+
+.articulo:hover{
+    box-shadow: 0 4px 10px rgba(17, 29, 48, .26);
+}
+
+.articulo>i{
+    font-size: 30px;
+    color: #ffff;
+    background:#1FDE82;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(31, 222, 130, .46);
+}
+
+.articulo>h3{
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.articulo>p{
+    font-weight: 100;
+    color: #5D6678;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.articulo>a{
+    color: #5D6678;
+    font-weight: 400;
+    text-decoration: none;
+}
+.articulo>a:hover{
+    color: #1FDE82;
+    transition: color .5s;
+}
+
