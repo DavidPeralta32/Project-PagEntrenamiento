@@ -343,7 +343,7 @@ footer{
     }
 
     .acerca-de>img{
-        width: 350px;        
+        width: 300px;        
     }
 
     /* Articulos */
@@ -370,4 +370,6 @@ footer{
         margin-bottom: 40px;
     }
 }
+
+
 
