@@ -396,5 +396,18 @@ footer{
     }
 }
 
+/* loggin */
+
+
+.formulario{
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    
+}
+.datos-formulario{
+    margin-top: 20px;
+    
+}
 
 
