@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear cuenta</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <div class="form-group2">
     <h1>Crear cuenta</h1>
-        <form action="loginforma.php" method="POST">
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <div class="form-group">
                 <label for="nControlUsuario">No Control</label>
                 <input type="text" class="form-control"
@@ -21,34 +23,42 @@
                 <input type="text" class="form-control"
                 id="nombreUsuario" name="nombreUsuario" required
                 placeholder="Escriba su nombre"
-                title="Escriba su nombre"
-                patter="^[A-Z,a-z]{15}$">
+                title="Escriba su nombre">
             </div>
             <div class="form-group">
                 <label for="apellidoPUsuario">Apellido paterno: </label>
                 <input type="text" class="form-control"
                 id="apellidoPUsuario" name="apellidoPUsuario" required
                 placeholder="Escriba su apellido paterno"
-                title="Escriba su apellido Paterno"
-                patter="^[A-Z,a-z]{15}$">
+                title="Escriba su apellido Paterno">
             </div>
             <div class="form-group">
-                <label for="apellidoMUsuario">Apellido materno: </label>
-                <input type="text" class="form-control"
-                id="apellidoMUsuario" name="apellidoMUsuario" required
-                placeholder="Escriba su apellido materno"
-                title="Escriba su apellido Materno"
-                patter="^[A-Z,a-z]{15}$">
+                <label for="passwordUsuario">Contraseña: </label>
+                <input type="password" class="form-control"
+                id="passwordUsuario" name="passwordUsuario" required
+                placeholder="Escribe tu contraseña"
+                title="Escribe tu contraseña">
             </div>
             <div class="form-group">
                 <label for="carreraUsuario">Carrera: </label>
                 <input type="text" class="form-control"
                 id="carreraUsuario" name="carreraUsuario" required
                 placeholder="Escriba su carrera"
-                title="Escriba su carrera"
-                patter="^[A-Z,a-z]{30}$">
+                title="Escriba su carrera">
             </div>
-            <input type="submit" value="Crear cuenta">
+
+            <?php if($errores):  ?>
+                <div class="alert errores">
+                    <?php echo $errores; ?>
+                </div>
+                <?php elseif ($enviado): ?>
+                    <div class="alert succes">
+                        <h3>Agregado con exito</h3>
+                    </div>
+            <?php endif ?>    
+
+            <input type="submit" value="Crear cuenta" name="submit">
         </form>
+    </div>      
 </body>
 </html>

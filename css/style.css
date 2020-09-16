@@ -398,16 +398,90 @@ footer{
 
 /* loggin */
 
-
-.formulario{
+.form-group{
+    margin: auto;
+    width: 90%;
+    max-width: 550px;
+    font-size: 16px;
+}
+form{
     width: 100%;
-    margin-top: 15px;
+    margin: 20px 0;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 0  3px grey;
+    border-top: 4px solid #155799;
+}
+
+form input[type="text"], form input[type="password"]{
+    border: 1px solid #535353;
+    border-radius: 2px;
+    padding: 5px;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #141914;
+}
+
+form input[type="text"]:focus ,form input[type="password"]:focus{
+    border: 2px solid #3F5185;
+    padding: 10px;
+}
+
+.alert{
+    padding: 1em;
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert.errores{
+    background: #F2DEDE;
+    border: 1px solid #a94442;
+    color: #a94442;
+}
+.alert.succes{
+    background: #4CAF50;
+}
+
+.btn,
+form input[type="submit"]{
+    padding: 15px;
+    background:#ED572A;
+    color: #E1E9FA;
+    font-size: 1em;
+    font-family: "Roboto",Arial,sans-serif,helvetica;
+    border-radius: 2px;
+    border: none;
+    float: right;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover{
+    background: #E64A19;
+}
+
+.form-group2{
+    margin: auto;
+    width: 90%;
+    max-width: 550px;
+    font-size: 16px;
+   
+}
+.form-group2>h1{
+    font-size: 35px;
     text-align: center;
-    
+    margin-top: 10px;
 }
-.datos-formulario{
-    margin-top: 20px;
-    
+
+label{
+    font-size: 20px;
 }
+
+
+
+
 
 
