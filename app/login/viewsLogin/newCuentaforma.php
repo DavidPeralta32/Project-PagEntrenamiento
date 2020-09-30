@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear cuenta</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <div class="form-group2">
@@ -40,6 +40,13 @@
                 title="Escribe tu contraseña">
             </div>
             <div class="form-group">
+                <label for="passwordUsuario">Confirmar contraseña: </label>
+                <input type="password" class="form-control"
+                id="passwordUsuario2" name="passwordUsuario2" required
+                placeholder="Confirma tu contraseña"
+                title="Confirma tu contraseña">
+            </div>
+            <div class="form-group">
                 <label for="carreraUsuario">Carrera: </label>
                 <input type="text" class="form-control"
                 id="carreraUsuario" name="carreraUsuario" required
@@ -47,15 +54,16 @@
                 title="Escriba su carrera">
             </div>
 
-            <?php if($errores):  ?>
+            <?php if(!empty($errores)):  ?>
                 <div class="alert errores">
+                    <ul>
                     <?php echo $errores; ?>
+                    </ul>
+                   
                 </div>
-                <?php elseif ($enviado): ?>
-                    <div class="alert succes">
-                        <h3>Agregado con exito</h3>
-                    </div>
-            <?php endif ?>    
+            <?php endif ?>
+            
+            <a href="index.php">Iniciar Sesion</a>
 
             <input type="submit" value="Crear cuenta" name="submit">
         </form>

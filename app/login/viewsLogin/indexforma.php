@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-
     <div class="form-group">
+        <h1>Inicio de Sesion</h1>
+        <a href="../../index.html"><button>Regresar</button></a>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <input type="text" class="form-control" placeholder="Escribe tu N. Control" id="nControl"
                 name="nControl" value="">

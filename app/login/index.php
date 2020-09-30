@@ -1,10 +1,10 @@
-<?php
+<?php session_start();
+
+if (isset($_SESSION['usuario'])) {
+    header('Location: index.php');
+}
 $errores = '';
 $enviado = '';
-
-require_once '../db/conexion.php';
-
-
 
 if(isset($_POST['submit'])){
     $nControl = $_POST['nControl'];
@@ -28,5 +28,5 @@ if(isset($_POST['submit'])){
 
 }
 
-require_once 'indexforma.php';
+require_once 'viewsLogin/indexforma.php';
 ?>
