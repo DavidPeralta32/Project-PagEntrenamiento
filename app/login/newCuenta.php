@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
             ':statusu' =>"0")
         );
         
-        header('Location: index.php');
+        header('Location: login.php');
     }
 
     

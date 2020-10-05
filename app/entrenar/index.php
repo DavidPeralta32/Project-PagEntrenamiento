@@ -1,9 +1,9 @@
 <?php session_start();
 
 if (isset($_SESSION['usuario'])) {
-    header('Location: entrenar.php');
+    include_once 'entrenar.php';
 }else{
-    header('Location: ../index.php');
+    header('Location: ../login/login.php');
 }
 
 ?>
