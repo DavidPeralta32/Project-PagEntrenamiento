@@ -1,44 +1,55 @@
-<?php 
-echo '<h1>Videos de entranamiento</h1>';
-echo '<a href="../login/cerrar.php">Cerrar sesion</a>';
-//Resultados por pagina
-//  $MAX_RESULTS = 3;
-//  // Llave obtenida de youtube api
-//  $API_kEY = "AIzaSyB-j7aCZ0DLyGNBPnjVLw6fzwylT_LYG1g";
-//  // Id del canal obtenido de https://commentpicker.com/youtube-channel-id.php
-//  $CHANNEL_ID = "UC0I19sf5TmnD-oFzsI9kpOA";
-
-//      $videoLista =
-//          json_decode(file_get_contents('https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId='.$CHANNEL_ID.'&maxResults='.$MAX_RESULTS.'&key='.$API_kEY.''));
-
-//      foreach($videoLista->items as $item){
-//          if(isset($item->id->videoId)){
-//              echo '<div class="youtube-video">
-//              <iframe width="280" height="150"
-//               src="https://www.youtube.com/embed/'.$item->id->videoId.'" 
-//               frameborder="0" allowfullscreen></iframe>
-//              <h2>'.$item->snippet->title.'</h2>
-//              </div>';
-//          }
-//      }
-
-//  if (!isset($_SESSION['usuario'])) {
-//      header('Location: index.php');
-//  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Entrenar</title>
+    <link rel="stylesheet" href="../../assets/bt4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="Videos">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/SA9cNu_B5Tg"
-     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-      gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+<!-- Barra de navegacion -->
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <!-- Logo -->
+  <a class="navbar-brand" href="#"><i class="fas fa-basketball-ball"></i></a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="index.php">Test</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle " href="" id="navbardrop" data-toggle="dropdown">
+      <i class="fas fa-user-circle"></i>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Perfil</a>
+        <a class="dropdown-item" href="#">Asistencia</a>
+        <a class="dropdown-item" href="../login/cerrar.php">Cerrar Sesion</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+</nav>
+
+<!-- Videos -->
+<div class="videos">
+    <h1>Entrenamiento Basquetbol</h1>
+    <p>Los imparables <strong>Entrenan</strong> <br> los perdedores se <strong>Quejan</strong> </p>
+    <iframe  src="https://www.youtube.com/embed/vjDjgsBG7xs" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+    <p><strong>Clase 01 -</strong>  Introduccion al curso</p>
+</div>
+
+
+ <!-- implemento los script de bootstrap -->
+<script src="../../assets/jqry/jquery-3.4.1.min.js"></script>
+<script src="../../assets/bt4/js/bootstrap.min.js"></script> 
 </body>
 </html>
 
