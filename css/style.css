@@ -115,12 +115,12 @@ nav{
     width: 100%;
     height: 100%;
     text-align: center;
-    background-color: #5D6678;
+    /* background-color: #5D6678; */
 }
 
 .quienes-somos> img{
     margin-top: 10px;
-    width: 37%;
+    width: 70%;
     border-bottom: cyan solid;
 }
 
@@ -360,6 +360,51 @@ footer{
         width: 40%;
         margin-bottom: 40px;
     }
+    /* carrucel de fotos */
+    .contenedor-carrucel{
+        padding: 10px;
+        width: 90%px;
+        text-align: center;
+        justify-content: center;   
+    }
+    .contenedor-carrucel img{
+        width: 540px;
+        height: 500px;
+    }
+    /* videos de entrenamiento */
+    .videos{
+        margin: 60px 10px 10px 0;
+        margin-left: 0;
+        padding: 10px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .videos> iframe{
+        margin: 10px;
+        width: 300px;
+        height: 200px
+     }
+
+        /* quienes somos */
+    .quienes-somos{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        /* background-color: #5D6678; */
+    }
+
+    .quienes-somos> img{
+        margin: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        margin: auto;
+        border-bottom: cyan solid;
+    }
 
 }
 
@@ -445,7 +490,7 @@ footer{
         width: 95%;
         margin-bottom: 40px;
     }
-
+/* videos de entrenamiento */
     .videos{
         margin: 60px 10px 10px 0;
         margin-left: 0;
@@ -459,20 +504,38 @@ footer{
         width: 300px;
         height: 200px
      }
-     /* carrucel de fotos */
-.contenedor-carrucel{
-    padding: 10px;
-    width: 90%px;
-    text-align: center;
-    justify-content: center;
- 
+        /* carrucel de fotos */
+    .contenedor-carrucel{
+        padding: 10px;
+        width: 90%px;
+        text-align: center;
+        justify-content: center;
     
-}
+        
+    }
 
-.contenedor-carrucel img{
-    width: 540px;
-    height: 500px;
-}
+    .contenedor-carrucel img{
+        width: 315px;
+        height: 315px;
+    }
+     /* quienes somos */
+     .quienes-somos{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        /* background-color: #5D6678; */
+    }
+    .quienes-somos> img{
+        margin: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        margin: auto;
+        border-bottom: cyan solid;
+    }
 }
 
 /* loggin */
@@ -583,6 +646,24 @@ button{
     cursor: pointer;
 }
 
+/* burbuja de whatsapp */
+.appWhatsapp{
+    position: fixed;
+    right: 26px;
+    bottom: 50px;
+    width: 60px;
+    z-index: 1000;
+    display: block;
+}
+.appWhatsapp i{
+    width: 100%;
+    height: auto;
+    font-size: 63px;
+}
+
+.menuentrenar i{
+    font-size: 30px;
+}
 
 
 

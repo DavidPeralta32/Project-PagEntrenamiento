@@ -10,33 +10,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- Barra de navegacion -->
-     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-  <!-- Logo -->
-  <a class="navbar-brand" href="#"><i class="fas fa-basketball-ball"></i></a>
+   <!-- Barra de navegacion -->
+  <div class="menuentrenar">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#"><i class="fas fa-basketball-ball"></i></a>
 
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="index.php">Test</a>
-    </li>
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.php">Test</a>
+      </li>
 
-    <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle " href="" id="navbardrop" data-toggle="dropdown">
-      <i class="fas fa-user-circle"></i>
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Perfil</a>
-        <a class="dropdown-item" href="#">Asistencia</a>
-        <a class="dropdown-item" href="../login/cerrar.php">Cerrar Sesion</a>
-      </div>
-    </li>
-  </ul>
-</nav>
-</nav>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle " href="" id="navbardrop" data-toggle="dropdown">
+        <i class="fas fa-user-circle"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Perfil</a>
+          <a class="dropdown-item" href="#">Asistencia</a>
+          <a class="dropdown-item" href="../login/cerrar.php">Cerrar Sesion</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  </nav>
+</div>
 
-<!-- Videos -->
+
+<!-- Videos entrenamiento-->
 <div class="videos">
     <h1>Entrenamiento Basquetbol</h1>
     <p>Los imparables <strong>Entrenan</strong> <br> los perdedores se <strong>Quejan</strong> </p>
@@ -45,6 +48,11 @@
         allowfullscreen></iframe>
     <p><strong>Clase 01 -</strong>  Introduccion al curso</p>
 </div>
+
+<!--incluyo el  Boton de whatsapp -->
+<?php
+ include_once '../../includes/whatsapp.php';
+?>
 
 
  <!-- implemento los script de bootstrap -->

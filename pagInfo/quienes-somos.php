@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="quienes-somos">
-            <img src="../img/notfound.png">
+    <img src="../img/mantenimiento.gif" alt="Funny image">
+            <h1>Estamos en mantenimiento, tengan paciencia.</h1>
     </div>
 </body>
 </html>
