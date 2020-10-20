@@ -722,6 +722,63 @@ button{
     opacity: 0.5;
 }
 
+/* Video api you tube */
+.contenedor-api{
+    margin: 10px;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+.contenedor-api h1{
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Formulario subir archivo */
+.contenedor-galeria{
+    margin: 10px;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #fff;
+}
+.contenedor-subir{
+    margin: 0;
+    background-color: rgb(214, 209, 209);
+    padding: 5px;
+    border-top: #155799 5px solid;
+    width: 500px;
+    text-align: center;
+}
+
+.contenedor-subir label,input{
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.footer-subir{
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer-subir li{
+    display: inline;
+    padding: 10px;
+    font-size: 25px;
+    
+}
+
+.footer-subir .link{
+    color: #fff;
+}
 
 
 
