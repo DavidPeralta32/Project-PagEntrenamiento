@@ -8,40 +8,33 @@
     <title>Galeria</title>
 </head>
 <body>
+    <header>
+        <div class="contenedor">
+           
+        </div>
+    </header>
     <div class="galeria">
-    <h1>Galeria de fotos</h1>
+         <h1 class="titulo">Galeria</h1>
+        <?php foreach ($fotos as $foto): ?>
         <div class="fotos">
-         <h1>Foto 1</h1>
-            <img src="../fotos/equipoderro.jpg" alt="">
-        </div>
-        <div class="fotos">
-         <h1>Foto 1</h1>
-            <img src="../fotos/equipoderro.jpg" alt="">
-        </div>
-        <div class="fotos">
-         <h1>Foto 1</h1>
-            <img src="../fotos/equipoderro.jpg" alt="">
-        </div>
-        <div class="fotos">
-         <h1>Foto 1</h1>
-            <img src="../fotos/equipoderro.jpg" alt="">
-        </div>
-        <div class="fotos">
-         <h1>Foto 1</h1>
-            <img src="../fotos/equipoderro.jpg" alt="">
-        </div>
-        <div class="fotos">
-         <h1>Foto 1</h1>
-            <img src="../fotos/equipoderro.jpg" alt="">
-        </div>
+         <a href="foto.php?id=<?php echo $foto['id']; ?>">
+            <img src="../fotos/<?php echo $foto['imagen']; ?>" alt="">
+        </a>
     </div>
+    <?php endforeach ?>
+
     <div class="footer">
+        <?php if ($pagina_actual >1): ?>
         <div class="regresar">
-            <a href=""><i class="far fa-arrow-alt-circle-left"></i></a>
+            <a href="galeria.php?p=<?php echo $pagina_actual -1; ?>"><i class="far fa-arrow-alt-circle-left"></i></a>
         </div>
+        <?php endif ?>
+
+        <?php  if($total_paginas != $pagina_actual): ?>
         <div class="siguiente">
-            <a href=""><i class="far fa-arrow-alt-circle-right"></i></a>
+            <a href="galeria.php?p=<?php echo $pagina_actual +1; ?>"><i class="far fa-arrow-alt-circle-right"></i></a>
         </div>
+        <?php endif ?>
     </div>
 </body>
 </html>

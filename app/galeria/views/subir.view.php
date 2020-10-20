@@ -10,12 +10,20 @@
     <h1>Subir foto</h1>
     <div class="contenedor-galeria">
         <div class="contenedor-subir">
-            <input type="file" name="Seleccionar archivo" id="">
+        <form class="formulario" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
+            <label for="">Selecciona una foto:</label>
+            <input type="file" name="foto" id="foto">
             <label for="">Numero de control:</label>
-            <input type="text">
-            <label for="">Grupo:</label>
-            <input type="text">
+            <input type="text" name="numControl" id="numControl">
+            <label for="">Hora:</label>
+            <input type="text" name="hora" id="hora" placeholder="Ej: 17:00-18:00">
+
+            <?php if (isset($error)):  ?>
+                <p class="error"><?php echo $error; ?></p>
+            <?php endif ?>
+
             <input type="submit" value="Subir">
+        </form>    
         </div>
     </div>
     <div class="footer-subir">
