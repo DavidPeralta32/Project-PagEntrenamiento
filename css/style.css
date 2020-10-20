@@ -668,7 +668,7 @@ button{
 /* galeria de fotos */
 
 .galeria{
-    background-color: #3F5185;
+    background-color: #afaeae;
     padding: 15px;
     margin: 0px;
     border: 0px;
@@ -697,22 +697,26 @@ button{
     width: 250px;
     height: 250px;   
 }
+.fotos img:hover{
+    border: #fff 8px solid;   
+}
 
 .footer{
     margin: 0px;
     padding: 10px;
     width: 100%;
     display: flex;
+    background-color: #afaeae;
     justify-content: space-between;
     
 }
 
 .regresar i{
-    font-size: 35px;
+    font-size: 50px;
 }
 
 .siguiente i{
-    font-size: 35px;
+    font-size: 50px;
 }
 
 .regresar i:hover{
@@ -720,6 +724,14 @@ button{
 }
 .siguiente i:hover{
     opacity: 0.5;
+}
+
+.flecha-siguiente{
+    color: #000;
+}
+
+.flecha-regresar{
+    color: #000;
 }
 
 /* Video api you tube */
@@ -747,9 +759,9 @@ button{
 }
 .contenedor-subir{
     margin: 0;
-    background-color: rgb(214, 209, 209);
+    /* background-color: rgb(214, 209, 209); */
     padding: 5px;
-    border-top: #155799 5px solid;
+    /* border-top: #155799 5px solid; */
     width: 500px;
     text-align: center;
 }
@@ -778,6 +790,59 @@ button{
 
 .footer-subir .link{
     color: #fff;
+}
+
+/* mostrar foto seleccionada de la galeria */
+
+.contenedor-foto{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenedor-foto img{
+    width: 500px;
+    height: 400px;
+}
+
+.contenedor-foto p{
+    font-size: 35px;
+    text-align: center;
+}
+
+.footer-foto{
+    width: 100%;
+    padding: 20px;
+    background: #555454;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    bottom: 0;
+    
+}
+
+.footer-foto p{
+    font-size: 25px;
+    color: #fff;
+}
+
+.link-regresar{
+    font-size: 25px;
+    padding: 10px;
+    height: 100%;
+    background-color: #afaeae;
+}
+
+.link-regresar a{
+    text-decoration: none;
+    color: #000;
+}
+.link-regresar a:hover{
+    opacity: 0.6;
 }
 
 

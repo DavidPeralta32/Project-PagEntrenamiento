@@ -29,7 +29,7 @@
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Perfil</a>
-          <a class="dropdown-item" href="../galeria/controlador/subir.php">Asistencia</a>
+          <a class="dropdown-item" href="../galeria/controlador/subir.php">Evidencia</a>
           <a class="dropdown-item" href="../login/cerrar.php">Cerrar Sesion</a>
         </div>
       </li>

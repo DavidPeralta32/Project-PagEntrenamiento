@@ -8,13 +8,13 @@
     <title>Galeria</title>
 </head>
 <body>
-    <header>
-        <div class="contenedor">
-           
-        </div>
-    </header>
+    <div class="link-regresar">
+    <a href="../../entrenar/entrenar.php">Entrenar</a>
+    </div>
+
     <div class="galeria">
          <h1 class="titulo">Galeria</h1>
+          
         <?php foreach ($fotos as $foto): ?>
         <div class="fotos">
          <a href="foto.php?id=<?php echo $foto['id']; ?>">
@@ -26,13 +26,13 @@
     <div class="footer">
         <?php if ($pagina_actual >1): ?>
         <div class="regresar">
-            <a href="galeria.php?p=<?php echo $pagina_actual -1; ?>"><i class="far fa-arrow-alt-circle-left"></i></a>
+            <a class="flecha-regresar" href="galeria.php?p=<?php echo $pagina_actual -1; ?>"><i class="far fa-arrow-alt-circle-left"></i></a>
         </div>
         <?php endif ?>
 
         <?php  if($total_paginas != $pagina_actual): ?>
         <div class="siguiente">
-            <a href="galeria.php?p=<?php echo $pagina_actual +1; ?>"><i class="far fa-arrow-alt-circle-right"></i></a>
+            <a class="flecha-siguiente" href="galeria.php?p=<?php echo $pagina_actual +1; ?>"><i class="far fa-arrow-alt-circle-right"></i></a>
         </div>
         <?php endif ?>
     </div>
