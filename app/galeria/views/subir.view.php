@@ -7,14 +7,14 @@
     <title>Subir foto</title>
 </head>
 <body>
-    <h1>Subir foto</h1>
+<h1>Subir foto</h1>
     <div class="contenedor-galeria">
-        <div class="contenedor-subir">
+        <div class="form-group">
         <form class="formulario" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
             <label for="">Selecciona una foto:</label>
             <input type="file" name="foto" id="foto">
             <label for="">Numero de control:</label>
-            <input type="text" name="numControl" id="numControl">
+            <input type="text" name="numControl" id="numControl" value="<?php  echo $_SESSION['usuario'];?>" readonly>
             <label for="">Hora:</label>
             <input type="text" name="hora" id="hora" placeholder="Ej: 17:00-18:00">
 
@@ -26,12 +26,12 @@
         </form>    
         </div>
     </div>
-    <div class="footer-subir">
+    <!-- <div class="footer-subir">
         <ul>
             <li> <a href="../../entrenar/index.php" class="link">Regresar</a></li>
             <li> <a href="../controlador/galeria.php" class="link">Galeria</a></li>
         </ul>
-    </div>
+    </div> -->
     
 </body>
 </html>

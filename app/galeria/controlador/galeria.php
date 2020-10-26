@@ -4,6 +4,7 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: ../../entrenar/index.php');
 }
 
+
 require_once '../../../db/conexion.php';
 $fotos_por_pagina = 8;
 

@@ -22,7 +22,7 @@
                 //Embed video
                 if(isset($item->id->videoId)){
                     echo '<div class="youtube-video">
-                            <iframe width="280" height="200" src="https://www.youtube.com/embed/'.$item->id->videoId.'" frameborder="0" allowfullscreen></iframe>
+                            <iframe width="350" height="250" src="https://www.youtube.com/embed/'.$item->id->videoId.'" frameborder="0" allowfullscreen></iframe>
                             <h2>'. $item->snippet->title .'</h2>
                             <h2>'.$item->snippet->description .'</h2>
                         </div>';

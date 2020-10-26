@@ -3,9 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    /* background-color: lightcyan ; */
+/* Modificamos el scrollbar */
+body::-webkit-scrollbar{
+    width: 0.8rem;
 }
+body::-webkit-scrollbar-track{
+    background: #000;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: purple;
+    border-radius: 5px;
+    /* &:active{
+        background: darkmagenta;
+    } */
+}
+
+
+
 .contenedor1{
     width: 90%;
     max-width: 1000px;
@@ -309,6 +324,55 @@ footer{
     font-family: 'Dancing Script', cursive; ;
 }
 
+/* Formulario subir archivo */
+.contenedor-galeria{
+    margin: 10px;
+    padding: 0;
+    border: 0;
+    width: 100%px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #fff;
+}
+.contenedor-subir{
+    margin: 0;
+    padding: 5px;
+    width: 500px;
+    text-align: center;
+}
+
+.contenedor-galeria h1{
+    text-align: center;
+}
+
+.contenedor-subir label,input{
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.footer-subir{
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer-subir li{
+    display: inline;
+    padding: 10px;
+    font-size: 25px;
+    
+}
+
+.footer-subir .link{
+    color: #fff;
+}
+
+
 
 @media screen and (max-width:800px){
     .titulo{
@@ -404,6 +468,34 @@ footer{
         display: inline-block;
         margin: auto;
         border-bottom: cyan solid;
+    }
+
+    /* Formulario subir archivo */
+    .contenedor-galeria{
+        margin: 10px;
+        padding: 5px;
+        border: 0;
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #fff;
+    }
+    .contenedor-subir{
+        margin: 0;
+        padding: 5px;
+        width: 300px;
+        text-align: center;
+    }
+    .footer-subir{
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+        
     }
 
 }
@@ -535,6 +627,29 @@ footer{
         display: inline-block;
         margin: auto;
         border-bottom: cyan solid;
+    }
+
+    /* Formulario subir archivo */
+    .contenedor-galeria{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .contenedor-subir{
+        margin: 0;
+        padding: 5px;
+        width: 300px;
+        text-align: center;
+    }
+    .footer-subir{
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
     }
 }
 
@@ -746,51 +861,6 @@ button{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-/* Formulario subir archivo */
-.contenedor-galeria{
-    margin: 10px;
-    padding: 0;
-    border: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: #fff;
-}
-.contenedor-subir{
-    margin: 0;
-    /* background-color: rgb(214, 209, 209); */
-    padding: 5px;
-    /* border-top: #155799 5px solid; */
-    width: 500px;
-    text-align: center;
-}
-
-.contenedor-subir label,input{
-    font-size: 20px;
-    padding: 5px;
-    margin-top: 15px;
-}
-
-.footer-subir{
-    width: 100%;
-    background-color: #000;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: space-evenly;
-}
-.footer-subir li{
-    display: inline;
-    padding: 10px;
-    font-size: 25px;
-    
-}
-
-.footer-subir .link{
-    color: #fff;
-}
 
 /* mostrar foto seleccionada de la galeria */
 
@@ -844,12 +914,3 @@ button{
 .link-regresar a:hover{
     opacity: 0.6;
 }
-
-
-
-
-
-
-
-
-

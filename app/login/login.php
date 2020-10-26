@@ -34,8 +34,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $resultado = $statement->fetch();
         
         if ($resultado !==false) {
-            $_SESSION['usuario']= $nControl;
-            header('Location: index.php');
+            $_SESSION['usuario'] = $nControl;
+            header("Location: index.php");
         }else{
             $errores .= '<li>Usuario y/o Contraseña incorrectos</li>';
         }

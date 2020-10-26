@@ -19,7 +19,9 @@
     <!-- Links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Test</a>
+      <?php
+        echo "<a class='nav-link' href='../galeria/controlador/galeria.php'>Galeria $usuario</a> ";
+        ?>
       </li>
 
       <!-- Dropdown -->
@@ -43,10 +45,15 @@
 <div class="videos">
     <h1>Entrenamiento Basquetbol</h1>
     <p>Los imparables <strong>Entrenan</strong> <br> los perdedores se <strong>Quejan</strong> </p>
-    <iframe  src="https://www.youtube.com/embed/vjDjgsBG7xs" 
+
+    <?php
+      require_once '../../includes/apiYoutube/index.php';
+    ?>
+
+    <!-- <iframe  src="https://www.youtube.com/embed/vjDjgsBG7xs" 
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
-    <p><strong>Clase 01 -</strong>  Introduccion al curso</p>
+    <p><strong>Clase 01 -</strong>  Introduccion al curso</p> -->
 </div>
 
 <!--incluyo el  Boton de whatsapp -->
