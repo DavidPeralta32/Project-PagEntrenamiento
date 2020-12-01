@@ -14,7 +14,7 @@
   <div class="menuentrenar">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <!-- Logo -->
-    <a class="navbar-brand" href="#"><i class="fas fa-basketball-ball"></i></a>
+    <a class="navbar-brand" href=""><i class="fas fa-basketball-ball"></i></a>
 
     <!-- Links -->
     <ul class="navbar-nav">
@@ -32,11 +32,11 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Perfil</a>
           <a class="dropdown-item" href="../galeria/controlador/subir.php">Evidencia</a>
+          <a class="dropdown-item" href="../Asistencia/index.php">Asistencia</a>
           <a class="dropdown-item" href="../login/cerrar.php">Cerrar Sesion</a>
         </div>
       </li>
     </ul>
-  </nav>
   </nav>
 </div>
 
@@ -47,13 +47,13 @@
     <p>Los imparables <strong>Entrenan</strong> <br> los perdedores se <strong>Quejan</strong> </p>
 
     <?php
-      require_once '../../includes/apiYoutube/index.php';
+      //require_once '../../includes/apiYoutube/index.php';
     ?>
 
-    <!-- <iframe  src="https://www.youtube.com/embed/vjDjgsBG7xs" 
+    <iframe  src="https://www.youtube.com/embed/vjDjgsBG7xs" 
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
-    <p><strong>Clase 01 -</strong>  Introduccion al curso</p> -->
+    <p><strong>Clase 01 -</strong>  Introduccion al curso</p>
 </div>
 
 <!--incluyo el  Boton de whatsapp -->
