@@ -14,13 +14,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     $apellidoP = $_POST['apellidoPUsuario'];
     $password = $_POST['passwordUsuario'];
     $password2 = $_POST['passwordUsuario2'];
+    $disciplina = $_POST['disciplinaUsuario'];
     $carrera = $_POST['carreraUsuario'];
     
 
     $errores = '';
     
-
-    if (empty($nControlUsuario) or empty($nombreUsuario) or empty($apellidoP) or empty($password) or empty($password2) or empty($carrera)) {
+    $expresion = "/^[E][0-9]{8}$/";
+    if (empty($nControlUsuario) and preg_match ($expresion,$nControlUsuario) or empty($nombreUsuario) or empty($apellidoP) or empty($password) or empty($password2) or empty($disciplina) or empty($carrera)) {
         $errores .= '<li>Por favor de rellenar todos los campos </li>';
     }else{
 
@@ -38,15 +39,16 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
     }
     if (empty($errores)) {
-        $statement = $conexion->prepare('INSERT INTO usuarios (idUsuarios,nControl,nombreUsuario,apellidoUsuario,passwordUsuario,carrera,statusUsuario)
-                                            VALUES (null,:ncontrol,:nombre,:apellido,:pass,:carrera,:statusu)');
+        $statement = $conexion->prepare('INSERT INTO usuarios (idUsuarios,nControl,nombreUsuario,apellidoUsuario,passwordUsuario,carrera,disciplina,asistencia)
+                                            VALUES (null,:ncontrol,:nombre,:apellido,:pass,:carrera,:disciplina,:asistencia)');
         $statement->execute(array(
             ':ncontrol' => $nControlUsuario,
             ':nombre' => $nombreUsuario,
             ':apellido' => $apellidoP,
             ':pass' => $password,
             ':carrera' => $carrera,
-            ':statusu' =>"0")
+            ':disciplina' => $disciplina,
+            ':asistencia' =>"0")
         );
         
         header('Location: login.php');

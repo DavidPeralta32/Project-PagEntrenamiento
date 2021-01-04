@@ -26,6 +26,7 @@
                     <th scope="col">Apellido</th>
                     <th scope="col">Password</th>
                     <th scope="col">Carrera</th>
+                    <th scope="col">Disciplina</th>
                     <th scope="col">Asistencia</th>
                     <th scope="col">Opciones</th>
                     </tr>
@@ -39,6 +40,7 @@
                     <td><?php echo $row['apellidoUsuario']; ?></td>
                     <td><?php echo $row['passwordUsuario']; ?></td>
                     <td><?php echo $row['carrera']; ?></td>
+                    <td><?php echo $row['disciplina']; ?></td>
                     <td><?php echo $row['asistencia']; ?></td>
                     <td></td>
                     </tr>
