@@ -8,9 +8,9 @@
     <title>Galeria</title>
 </head>
 <body>
-    <!-- <div class="link-regresar">
+    <div class="link-regresar">
     <a href="../../entrenar/entrenar.php">Entrenar</a>
-    </div> -->
+    </div>
 
     <div class="galeria">
          <h1 class="titulo">Galeria </h1>

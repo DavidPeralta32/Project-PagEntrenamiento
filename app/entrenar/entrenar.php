@@ -30,7 +30,7 @@
         <i class="fas fa-user-circle"></i>
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Perfil</a>
+          <a class="dropdown-item" href="../perfil/perfil.php">Perfil</a>
           <a class="dropdown-item" href="../galeria/controlador/subir.php">Evidencia</a>
           <a class="dropdown-item" href="../Asistencia/index.php">Asistencia</a>
           <a class="dropdown-item" href="../login/cerrar.php">Cerrar Sesion</a>

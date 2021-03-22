@@ -11,18 +11,41 @@
 <body>
 
 <!-- Videos entrenamiento -->
-<div class="videos">
-    <h1>Entrenamiento Basquetbol</h1>
-    <p>Los imparables <strong>Entrenan</strong> <br> los perdedores se <strong>Quejan</strong> </p>
+    <div class="videos">
+        <h1>Entrenamiento Basquetbol</h1>
+        <p>Los imparables <strong>Entrenan</strong> <br> los perdedores se <strong>Quejan</strong> </p>
 
-    <?php
-      //require_once '../../includes/apiYoutube/index.php';
-    ?>
+        <?php
+        //require_once '../../includes/apiYoutube/index.php';
+        ?>
 
-    <iframe  src="https://www.youtube.com/embed/vjDjgsBG7xs" 
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        <iframe  src="https://www.youtube.com/embed/vjDjgsBG7xs" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+        <p><strong>Clase 01 -</strong>  Introduccion al curso</p>
+
+        <iframe src="https://www.youtube.com/embed/pD95-bRHcYc" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
-    <p><strong>Clase 01 -</strong>  Introduccion al curso</p>
-</div>
+        <p><strong>Calentamiento -</strong>Realizar siempre antes de cada rutina</p>
+
+        <iframe  src="https://www.youtube.com/embed/z2KbutTnZws"
+         title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+           allowfullscreen></iframe>
+           <p><strong>Estiramiento -</strong>Realizar siempre antes de cada rutina</p>
+
+           <iframe src="https://www.youtube.com/embed/-Tre6MD63Mo" title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allowfullscreen></iframe>
+             <p><strong>Rutina Brazo -</strong> <br>Si no cuenta con mancuernas realizar con un balon o cualquier otro <br>
+             objeto que tenga un peso que soporte!!!</p>
+
+             <iframe src="https://www.youtube.com/embed/B-ORuoBD7qI" title="YouTube video player"
+             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allowfullscreen></iframe>
+             <p><strong>Rutina ABS -</strong> <br>Si no cuenta con mancuernas realizar con un balon o cualquier otro <br>
+             objeto que tenga un peso que soporte!!!</p>
+    </div>
 </body>
 </html>

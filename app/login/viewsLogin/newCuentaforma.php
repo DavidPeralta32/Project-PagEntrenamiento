@@ -17,7 +17,7 @@
                  id="nControlUsuario" name="nControlUsuario" required
                  placeholder="Ejemplo: E20020606"
                  title="Escriba su No control"
-                 pattern = "^[E]*[0-9]{8}$">
+                 pattern = "^E[0-9]{8}$">
             </div>
             <div class="form-group">
                 <label for="nombreUsuario">Nombre: </label>

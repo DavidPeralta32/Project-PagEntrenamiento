@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
     $errores = '';
     
-    $expresion = "/^[E][0-9]{8}$/";
+    $expresion = "/^E[0-9]{8}$/";
     if (empty($nControlUsuario) and preg_match ($expresion,$nControlUsuario) or empty($nombreUsuario) or empty($apellidoP) or empty($password) or empty($password2) or empty($disciplina) or empty($carrera)) {
         $errores .= '<li>Por favor de rellenar todos los campos </li>';
     }else{
