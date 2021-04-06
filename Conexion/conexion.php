@@ -1,10 +1,17 @@
 <?php
 
 class Conexion {
-    private $servername = "localhost" ;
-   private $username = "root";
-   private $password = "";
-   private $dbname = "entrenamientopag";
+    //local
+//    private $servername = "localhost" ;
+//    private $username = "root";
+//    private $password = "";
+//    private $dbname = "entrenamientopag";
+
+    //hosting
+   private $servername = "localhost" ;
+   private $username = "u872169774_tiburonesblan";
+   private $password = "Tiburon06";
+   private $dbname = "u872169774_tiburones";
    public $conn;
    
    public function __construct() {

@@ -20,6 +20,7 @@
     <ul class="navbar-nav">
       <li class="nav-item">
       <?php
+
         echo "<a class='nav-link' href='../galeria/controlador/galeria.php'>Galeria</a> ";
         ?>
       </li>

@@ -14,14 +14,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         case 'listarUsuarios':
             echo json_encode($oCIndexController->listarUsuarios());
             break;
+        case 'verUsuario':
+            echo json_encode($oCIndexController->verUsuario());
+            break;
         
         default:
             # code...
             break;
     }
 }
-
-
 
 
 class indexController{
@@ -31,6 +32,7 @@ class indexController{
         $this->oIndex = new indexModel();
     }
 
+    //listar todos los usuarios
     public function listarUsuarios(){
        $aResultado = $this->oIndex->listarUsuarios();
        while ($rows = $aResultado->fetch_assoc()) {
@@ -39,9 +41,14 @@ class indexController{
        return $aResul;
     }
 
-    public function verUsuario($nIdUsuario){
+    // ver un usuario seleccionado
+    public function verUsuario(){
+        $nIdUsuario = $_POST['usuario'];
         $aResultado = $this->oIndex->verUsuario($nIdUsuario);
-        return $aResultado;
+        while ($rows = $aResultado->fetch_assoc()) {
+            $aResul[] = $rows;
+        }
+        return $aResul;
     }
     
 }
