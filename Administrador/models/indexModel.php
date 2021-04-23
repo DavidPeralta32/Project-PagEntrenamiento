@@ -15,10 +15,12 @@ class indexModel extends Conexion{
        $this->conn->close();
     }
 
-    public function editarUsuario(){
-        $sql = "UPDATE usuarios SET";
+    public function editarUsuario($nIdUsuario,$sNombre,$sApellido,$sCarrera,$sDisciplina,$nAsistencia){
+        $sql = "UPDATE usuarios SET nombreUsuario = '$sNombre' , apellidoUsuario = '$sApellido',
+         carrera = '$sCarrera', disciplina = '$sDisciplina', asistencia = '$nAsistencia'
+         WHERE idUsuarios = '$nIdUsuario' ";
         $aResultado = $this->conn->query($sql);
-
+        return $aResultado;
     }
 
     public function verUsuario($nIdUsuario){

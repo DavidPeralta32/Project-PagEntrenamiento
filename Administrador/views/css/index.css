@@ -1,0 +1,38 @@
+.buscador{
+    width: 100%;
+    padding: 10px 5px 5px 5px;
+    text-align: end;
+}
+
+#sBuscar{
+    width: 180px;
+    margin: 0;
+   border-radius: 15px; 
+  font-size: 20px;
+   border: 1px solid black;
+}
+
+#sBuscar:focus{
+    border: 2px solid rgb(139, 230, 135);
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+#sBuscar:hover{
+    border: 1px solid rgb(139, 230, 135);
+}
+
+#btnBuscar{
+    width: 80px;
+    font-size: 20px;
+    border-radius: 15px;
+    background: rgb(17, 20, 209);
+    color: white;
+    box-shadow: 4px 5px 5px black;
+}
+
+#btnBuscar:hover{
+    font-size: 22px;
+    cursor: pointer;
+}
+

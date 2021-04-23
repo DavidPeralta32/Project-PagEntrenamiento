@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./JS/indexView.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
     <title>Lista de alumnos Asu</title>
     <script>
             $(document).ready(function () {
@@ -22,6 +23,10 @@
                     <h1 class="display-4">Lista de Alumnos</h1>
                     <p class="lead">Se muestran los usuarios y su informacion asi como el total de asistencia</p>
                 </div>
+            </div>
+            <div class="buscador">
+              <input type="text"id="sBuscar">
+              <button onclick="" id="btnBuscar">Buscar</button>
             </div>
             <div class="table">
                 <a href="../login/cerrar.php">Cerrar sesion</a>
@@ -47,7 +52,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal ver usuario -->
 <div class="modal fade" id="modalVerUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -57,35 +62,86 @@
       </div>
       <div class="modal-body">
         <form>
-          <div class="mb-3">
+          <div class="col-6">
             <label for="exampleInputEmail1" class="form-label">Numero Control</label>
             <input type="text" class="form-control" id="sNumControl" readonly>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Nombre</label>
+           <div class="row g-3 align-items-center">
+            <div class="col-6">
+              <label for="exampleInputPassword1" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="sNombre" readonly>
-          </div>
-           <div class="mb-3">
-             <label for="exampleInputPassword1" class="form-label">Apellido</label>
+            </div>
+            <div class="col-6">
+            <label for="exampleInputPassword1" class="form-label">Apellido</label>
              <input type="text" class="form-control" id="sApellido" readonly>
-           </div>
-           <div class="mb-3">
+            </div>
+            <div class="col-6">
              <label for="exampleInputPassword1" class="form-label">Carrera</label>
              <input type="text" class="form-control" id="sCarrera" readonly>
            </div>
-            <div class="mb-3">
+            <div class="col-6">
               <label for="exampleInputPassword1" class="form-label">Asistencia</label>
               <input type="text" class="form-control" id="nAsistencia" readonly>
             </div>
+          </div>
 
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
+<!-- Termina modal ver usuario -->
+
+ <!-- Modal Editar usuario -->
+ <div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label">Numero Control</label>
+            <input type="text" class="form-control" id="editarNumControl" readonly>
+            <input type="hidden" class="form-control" id="editarnIdUsuario" readonly>
+          </div>
+           <div class="row g-3 align-items-center">
+            <div class="col-6">
+              <label for="exampleInputPassword1" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="editarNombre">
+            </div>
+            <div class="col-6">
+            <label for="exampleInputPassword1" class="form-label">Apellido</label>
+             <input type="text" class="form-control" id="editarApellido" >
+            </div>
+            <div class="col-6">
+             <label for="exampleInputPassword1" class="form-label">Carrera</label>
+             <input type="text" class="form-control" id="editarCarrera">
+           </div>
+            <div class="col-6">
+              <label for="exampleInputPassword1" class="form-label">Asistencia</label>
+              <input type="text" class="form-control" id="editarAsistencia">
+            </div>
+            <div class="col-6">
+              <label for="exampleInputPassword1" class="form-label">Disciplina</label>
+              <input type="text" class="form-control" id="editarDisciplina">
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="btnActualiar" onclick="actualizarUsuario()">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Termina modal Editar usuario -->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>

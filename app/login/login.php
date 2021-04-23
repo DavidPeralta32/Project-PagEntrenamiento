@@ -15,14 +15,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if (!empty($nControl)) {
         $nControl = trim($nControl);
         $nControl = filter_var($nControl,FILTER_SANITIZE_STRING);
+        
     }else{
-        $errores .= '<li>escribe un numero de control <li />';
+        $errores .= "error";
     }
     if(!empty($password)){
         $password = trim($password);
         $password = filter_var($password,FILTER_SANITIZE_STRING);
     }else{
-        $errores .= '<li>Contraseña incorrecta <li />';
+        $errores .= "error";
     }
     if (empty($errores)) {
         

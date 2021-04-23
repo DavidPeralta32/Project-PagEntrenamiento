@@ -2,17 +2,17 @@
 
 class Conexion {
     //local
-//    private $servername = "localhost" ;
-//    private $username = "root";
-//    private $password = "";
-//    private $dbname = "entrenamientopag";
+    private $servername = "localhost" ;
+    private $username = "root";
+    private $password = "";
+    private $dbname = "entrenamientopag";
 
     //hosting
-   private $servername = "localhost" ;
-   private $username = "u872169774_tiburonesblan";
-   private $password = "Tiburon06";
-   private $dbname = "u872169774_tiburones";
-   public $conn;
+//    private $servername = "localhost" ;
+//    private $username = "u872169774_tiburonesblan";
+//    private $password = "Tiburon06";
+//    private $dbname = "u872169774_tiburones";
+//    public $conn;
    
    public function __construct() {
        $this->conexion();

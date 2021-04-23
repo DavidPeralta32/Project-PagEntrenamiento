@@ -20,7 +20,8 @@ function listarUsuarios(){
             $("#misUsuarios").append("<td>" + obj.disciplina + "</td>");
             $("#misUsuarios").append("<td>" + obj.asistencia + "</td>");
             $("#misUsuarios").append("<td> <input type='hidden' id='nIdUsuario_"+obj.idUsuarios+"' value="+ obj.idUsuarios + ">\n\
-            <button type='button' onclick='verUsuario("+obj.idUsuarios+")' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalVerUsuario'> Ver </button></td>");
+            <button type='button' onclick='verUsuario("+obj.idUsuarios+")' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalVerUsuario'> Ver </button>\n\
+            <button type='button' onclick='editarUsuario("+obj.idUsuarios+")' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#modalEditarUsuario' style='color:white;' > Editar </button></td>");
             $("#misUsuarios").append("</tr>");
         });
     });
@@ -47,3 +48,56 @@ function verUsuario(nIdUsuario){
         }
     });
 }
+
+function editarUsuario(nIdUsuario){
+    let _ajaxEditarUsuario = $.ajax({
+        type: "POST",
+        datatype: "json",
+        data: {
+            function:"editarUsuario",
+            usuario: $("#nIdUsuario_"+nIdUsuario).val()
+        },
+        url: '../controller/indexController.php/verUsuario'
+    });
+    _ajaxEditarUsuario.done(function (event){
+        let oDatos = JSON.parse(event);
+        if(oDatos.length != 0){
+            $("#editarnIdUsuario").val(oDatos[0].idUsuarios);
+            $("#editarNumControl").val(oDatos[0].nControl);
+            $("#editarNombre").val(oDatos[0].nombreUsuario);
+            $("#editarApellido").val(oDatos[0].apellidoUsuario);
+            $("#editarCarrera").val(oDatos[0].carrera);
+            $("#editarAsistencia").val(oDatos[0].asistencia);
+            $("#editarDisciplina").val(oDatos[0].disciplina);
+        }
+    });
+}
+
+// $("#btnActualiar").click(function(){
+//     actualizarUsuario();
+// });
+
+function actualizarUsuario(){
+    let _ajaxActuaizaUsuario = $.ajax({
+        type:"POST",
+        datatype: "json",
+        data:{
+            function:"actualizaUsuario",
+            usuario:$("#editarnIdUsuario").val(),
+            nombre:$("#editarNombre").val(),
+            apellido:$("#editarApellido").val(),
+            carrera:$("#editarCarrera").val(),
+            asistencia:$("#editarAsistencia").val(),
+            disciplina:$("#editarDisciplina").val()
+        },
+        url: "../controller/indexController.php/actualizaUsuario"
+    });
+    _ajaxActuaizaUsuario.done(function(event){
+        let oDatos = JSON.parse(event);
+        if(oDatos === true){
+            alert("Actualizado correctamente");
+            $("#misUsuarios").empty();
+            listarUsuarios();
+        }
+        
+    })}
