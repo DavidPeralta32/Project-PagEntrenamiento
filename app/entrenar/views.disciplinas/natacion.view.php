@@ -21,6 +21,29 @@
      allowfullscreen></iframe>
      <!-- Descripcion -->
     <p><strong>Clase 01 -</strong>  Entrenamiento</p>
+
+    <iframe src="https://www.youtube.com/embed/pD95-bRHcYc" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+        <p><strong>Calentamiento -</strong>Realizar siempre antes de cada rutina</p>
+
+        <iframe  src="https://www.youtube.com/embed/z2KbutTnZws"
+         title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+           allowfullscreen></iframe>
+           <p><strong>Estiramiento -</strong>Realizar siempre antes de cada rutina</p>
+
+           <iframe src="https://www.youtube.com/embed/-Tre6MD63Mo" title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allowfullscreen></iframe>
+             <p><strong>Rutina Brazo -</strong> <br>Si no cuenta con mancuernas realizar con un balon o cualquier otro <br>
+             objeto que tenga un peso que soporte!!!</p>
+
+             <iframe src="https://www.youtube.com/embed/B-ORuoBD7qI" title="YouTube video player"
+             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allowfullscreen></iframe>
+             <p><strong>Rutina ABS -</strong> <br>Si no cuenta con mancuernas realizar con un balon o cualquier otro <br>
+             objeto que tenga un peso que soporte!!!</p>
 </div>
 </body>
 </html>

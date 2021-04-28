@@ -4,7 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./JS/indexView.js"></script>
+    <script src="https://kit.fontawesome.com/32258d33f0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/index.css">
     <title>Lista de alumnos Asu</title>
     <script>
@@ -16,7 +16,21 @@
 </head>
 
 <body>
+    <div class="icono-menu">
+            <img src="img/open-menu.png" id="icono-menu">
+  </div>
+    <div class="cont-menu active" id="menu">
+            <ul>
+              <li> <a href="../login/cerrar.php">Cerrar sesion</a></li>
+            </ul>
+    </div>
+
+  
+
+    
     <div class="contenedor-lista" style="width: 100%; display:flex; justify-content:center">
+    
+    
         <div class="contenido-lista" style="width:80%;">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container" style="text-align:center;">
@@ -29,7 +43,7 @@
               <button onclick="" id="btnBuscar">Buscar</button>
             </div>
             <div class="table">
-                <a href="../login/cerrar.php">Cerrar sesion</a>
+                <!-- <a href="../login/cerrar.php">Cerrar sesion</a> -->
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
@@ -145,7 +159,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
-
+    <script src="./JS/indexView.js"></script>
 </body>
 
 </html>
