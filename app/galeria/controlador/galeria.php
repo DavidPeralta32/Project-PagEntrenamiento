@@ -16,7 +16,7 @@ if(!$conexion){
     die();
 }
 
-$statement =$conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * from fotos LIMIT $inicio, $fotos_por_pagina");
+$statement =$conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * from fotos  LIMIT $inicio, $fotos_por_pagina");
 
 $statement->execute();
 $fotos = $statement->fetchAll();
