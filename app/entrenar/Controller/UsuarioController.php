@@ -11,6 +11,10 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
         case 'listarUsuarioId':
                 echo json_encode($oCUsuario->listarUsuarioPorId());
             break;
+
+        case 'insertarAsistencia':
+            echo json_encode($oCUsuario->insertarAsistenciaUsuario());
+            break;
         
         default:
             # code...
@@ -33,6 +37,13 @@ class UsuarioController{
             $aResul[]= $row;
         }
         return $aResul;
+    }
+
+    public function insertarAsistenciaUsuario(){
+        $this->oUsuario-> setNControl($_POST['NControl']);
+        $this->oUsuario-> setFechaAsistencia($_POST['dFecha']);
+        $aResultado = $this->oUsuario->insertarAsistencia();
+        return $aResultado;
     }
 }
 

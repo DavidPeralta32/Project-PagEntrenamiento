@@ -12,6 +12,7 @@ class UsuarioModel extends Conexion {
     private $sCarrera;
     private $sDisciplina;
     private $nAsistencia;
+    private $dFechaAsistencia;
 
     public function __construct()
     {
@@ -21,6 +22,13 @@ class UsuarioModel extends Conexion {
     public function listarUserId(){
         $sControl = $this->getNControl();
         $aResultado = $this->conn->query("SELECT * from usuarios where nControl = '$sControl'");
+        return $aResultado;
+    }
+
+    public function insertarAsistencia(){
+        $sControl = $this->getNControl();
+        $dFecha = $this->getFechaAsistencia();
+        $aResultado = $this->conn->query("INSERT INTO asistencia (nAsistencia,dFecha,sNControl_Usuario) VALUES (1,'$dFecha','$sControl')");
         return $aResultado;
     }
 
@@ -58,6 +66,10 @@ class UsuarioModel extends Conexion {
         return $this->nAsistencia;
     }
 
+    public function getFechaAsistencia() {
+        return $this->dFechaAsistencia;
+    }
+
     public function setIdUsuario($nIdUsuario) {
         $this->nIdUsuario = $nIdUsuario;
     }
@@ -88,6 +100,10 @@ class UsuarioModel extends Conexion {
 
     public function setAsistencia($nAsistencia) {
         $this->nAsistencia = $nAsistencia;
+    }
+
+    public function setFechaAsistencia($dFechaAsistencia) {
+        $this->dFechaAsistencia = $dFechaAsistencia;
     }
 
 
