@@ -28,7 +28,13 @@ class UsuarioModel extends Conexion {
     public function insertarAsistencia(){
         $sControl = $this->getNControl();
         $dFecha = $this->getFechaAsistencia();
-        $aResultado = $this->conn->query("INSERT INTO asistencia (nAsistencia,dFecha,sNControl_Usuario) VALUES (1,'$dFecha','$sControl')");
+        $aResultado = $this->conn->query("UPDATE asistencia SET nAsistencia = nAsistencia + 1, dFecha= '$dFecha' WHERE sNControl_Usuario = '$sControl'");
+        return $aResultado;
+    }
+
+    public function verFechaAsistencia(){
+        $sControl = $this->getNControl();
+        $aResultado = $this->conn->query("SELECT dFecha,sNControl_Usuario FROM asistencia WHERE sNControl_Usuario = '$sControl' ");
         return $aResultado;
     }
 

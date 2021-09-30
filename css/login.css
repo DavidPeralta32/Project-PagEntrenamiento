@@ -59,11 +59,7 @@ h1{
 .btn:hover{
     opacity: 0.8;
     cursor: pointer;
-    zoom: 1.1;
-    
 }
-
-
 
 .footerLogin a{
     color: white;

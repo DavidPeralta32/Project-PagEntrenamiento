@@ -126,18 +126,15 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-footer" style="justify-content: flex-start;">
+          <button type="button" class="btn btn-secondary" style="padding: 8px;background-color: red;color: white;border-radius: 5px;" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Fin modal Perfil -->
 
   <!-- Modal Asistencia -->
-
   <div class="modal fade" id="modalAsistencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -148,16 +145,16 @@
         <div class="modal-body">
           <div class="contenedor-asistencia" style="width: 100%; display:flex;flex-wrap:wrap ;justify-content: center;">
             <h1>Asistencia</h1>
-            <p>Pase de asistencia, favor de introducir <strong>una asistencia por sesion.</strong> </p>
+            <p>Pase de asistencia, favor de introducir <strong>una asistencia por dia.</strong> </p>
 
             <form>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Numero de Control</label>
-                <input type="text" class="form-control" name="nControl" id="exampleFormControlInput1" placeholder="Num. Control">
+                <input type="text" class="form-control" id="sNControlAsistencia" placeholder="Num. Control" readonly>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="presente" id="inlineCheckbox1" value="presente" checked>
-                <label class="form-check-label" for="inlineCheckbox1">Presente</label>
+                <input class="form-check-input" type="checkbox" id="checkPresente" value="presente" checked>
+                <label class="form-check-label"  for="inlineCheckbox1">Presente</label>
               </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" disabled>
@@ -168,14 +165,13 @@
                 <label class="form-check-label" for="inlineCheckbox3">Falta</label>
               </div>
               <div class="btn-asistencia" style="text-align: right;">
-                <button type="button" onclick="enviarAsistencia()" class="btn btn-primary">Enviar</button>
+                <button type="button" onclick="enviarAsistencia()" style="padding: 8px;background-color: green;color: white;border-radius: 5px;" class="btn btn-primary btn-sm">Enviar</button>
               </div>
             </form>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-footer" style="justify-content: flex-start;">
+          <button type="button" class="btn btn-secondary" style="padding: 8px;background-color: red;color: white;border-radius: 5px;" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>
@@ -230,40 +226,53 @@
 
     /**Funcion para abrir el modal de aistencia */
     function showModalAsistencia() {
-      $("#modalAsistencia").modal('show');
-    }
-
-    function enviarAsistencia() {
-      let ajaxAsistencia = $.ajax({
-        type: "POST",
+      let ajaxFechaAsistencia = $.ajax({
+        type: 'POST',
         datatype: "json",
         data: {
-          funcion: 'insertarAsistencia',
-          NControl: nControlSesion,
-          dFecha : new Date().toISOString().slice(0, 10)
-          
+          funcion: 'checarFechaAsistecia',
+          NControl: nControlSesion
         },
         url: "Controller/UsuarioController.php"
       });
-      ajaxAsistencia.done(function(event) {
-        let oRespuesta = JSON.parse(event);
-        alert(oRespuesta);
-      })
+      ajaxFechaAsistencia.done(function(event) {
+        let oFecha = JSON.parse(event);
+        let dFechaHoy = new Date().toISOString().slice(0, 10);
+        if (oFecha[0].dFecha == dFechaHoy) {
+          alert("Solo puede tomar una asistencia por dia");
+        } else {
+          $("#sNControlAsistencia").val(oFecha[0].sNControl_Usuario);
+          $("#modalAsistencia").modal('show');
+        }
+      });
+
     }
 
-    function verHora() {
-      let horasHoy = moment().format('HH');
-      var fechaHoy = moment();
-      console.log("fecha hoy " + fechaHoy.format('DD/MM/YYYY HH:mm'));
-      if (horasHoy >= 17 && horasHoy <= 20) {
-        alert("puede tomar asistencia");
-      } else if (horasHoy > 12) {
-        var fechaProximaAsistencia = moment().add(1, 'd');
-        console.log("fecha mañana " + fechaProximaAsistencia.format('DD/MM/YYYY HH:mm'));
-        var faltante = fechaProximaAsistencia.diff(fechaHoy,'hours');
-        alert("no puede tomar asistencia hasta dentro de " + faltante +" horas");
-      } else {
 
+    //Funcion para registrar la asistencia por dia en la base de datos
+    function enviarAsistencia() {
+      if (document.getElementById('checkPresente').checked) {
+        let ajaxAsistencia = $.ajax({
+          type: "POST",
+          datatype: "json",
+          data: {
+            funcion: 'insertarAsistencia',
+            NControl: nControlSesion,
+            dFecha: new Date().toISOString().slice(0, 10)
+
+          },
+          url: "Controller/UsuarioController.php"
+        });
+        ajaxAsistencia.done(function(event) {
+          let oRespuesta = JSON.parse(event);
+          if (oRespuesta == true) {
+            $("#modalAsistencia").modal('hide');
+          } else {
+            alert("Error al registrar su asistencia");
+          }
+        });
+      }else{
+        alert("No ha seleccionado la asistencia");
       }
     }
   </script>
