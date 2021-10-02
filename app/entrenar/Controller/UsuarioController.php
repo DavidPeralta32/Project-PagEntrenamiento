@@ -16,12 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             echo json_encode($oCUsuario->insertarAsistenciaUsuario());
             break;
 
-        case 'checarFechaAsistecia':
-            echo json_encode($oCUsuario->verFechaAsistencia());
+        case 'actualizarAsistencia':
+            echo json_encode($oCUsuario->actualizarAsistenciaUsuario());
             break;
 
-        case 'subirEvidencia':
-            echo json_encode($oCUsuario-> insertarEvidencia());
+
+        case 'checarFechaAsistecia':
+            echo json_encode($oCUsuario->verFechaAsistencia());
             break;
 
         default:
@@ -49,6 +50,14 @@ class UsuarioController
         return $aResul;
     }
 
+    public function actualizarAsistenciaUsuario()
+    {
+        $this->oUsuario->setNControl($_POST['NControl']);
+        $this->oUsuario->setFechaAsistencia($_POST['dFecha']);
+        $aResultado = $this->oUsuario->actualizarAsistencia();
+        return $aResultado;
+    }
+
     public function insertarAsistenciaUsuario()
     {
         $this->oUsuario->setNControl($_POST['NControl']);
@@ -61,26 +70,14 @@ class UsuarioController
     {
         $this->oUsuario->setNControl($_POST['NControl']);
         $aResultado = $this->oUsuario->verFechaAsistencia();
-        while ($row = $aResultado->fetch_assoc()) {
-            $aResul[] = $row;
-        }
-        return $aResul;
-    }
-
-    public function insertarEvidencia(){
-        $this->oUsuario->setNControl($_POST['NControl']);
-        $sfoto = $_POST['foto'];
-        $shora = $_POST['hora'];
-
-            $check = @getimagesize($_FILES[$sfoto]['tmp_name']);
-            if($check !== false){
-                $carpeta_destino = './Evidencias';
-                $archivo_subida = $carpeta_destino . $_FILES[$sfoto]['name'];
-                move_uploaded_file($_FILES[$sfoto]['tmp_name'],$archivo_subida);
-            }else{
-                return "El archivo no es una imagen o el archivo es muy pesado";
+        $rowResul = mysqli_num_rows($aResultado);
+        if ($rowResul > 0) {
+            while ($row = $aResultado->fetch_assoc()) {
+                $aResul[] = $row;
             }
-        $aResultado = $this->oUsuario->subirEvidencia($sfoto,$shora);
-        return $aResultado;
+            return $aResul;
+        } else {
+            return 'Error';
+        }
     }
 }

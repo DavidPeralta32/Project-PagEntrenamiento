@@ -27,11 +27,18 @@ class UsuarioModel extends Conexion
         return $aResultado;
     }
 
-    public function insertarAsistencia()
+    public function actualizarAsistencia()
     {
         $sControl = $this->getNControl();
         $dFecha = $this->getFechaAsistencia();
         $aResultado = $this->conn->query("UPDATE asistencia SET nAsistencia = nAsistencia + 1, dFecha= '$dFecha' WHERE sNControl_Usuario = '$sControl'");
+        return $aResultado;
+    }
+
+    public function insertarAsistencia(){
+        $sControl = $this->getNControl();
+        $dFecha = $this->getFechaAsistencia();
+        $aResultado = $this->conn->query("INSERT INTO asistencia (nAsistencia,dFecha,sNControl_Usuario) VALUES(1,'$dFecha','$sControl')");
         return $aResultado;
     }
 
@@ -42,14 +49,7 @@ class UsuarioModel extends Conexion
         return $aResultado;
     }
 
-    public function subirEvidencia($Foto, $hora)
-    {
-        $sControl = $this->getNControl();
-        $sFoto = $Foto;
-        $dhora = $hora;
-        $statement = $this->conn->query("INSERT INTO fotos(numControl,imagen,hora) values ('$sControl','$sFoto','$dhora')");
-        return $statement;
-    }
+    
 
 
 

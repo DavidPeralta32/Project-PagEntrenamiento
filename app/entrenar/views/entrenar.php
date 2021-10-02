@@ -222,6 +222,11 @@
     var nControlSesion = <?php echo json_encode($usuario) ?>;
 
     /**
+     * 1 = nueva asistencia / 2 = actualizar asistencia
+     */
+    let tipoAsistencia = 0;
+
+    /**
      *Funcion que trae los datos de un usuario 
      *para mostrarlos en el modal de perfil 
      */
@@ -271,12 +276,14 @@
       ajaxFechaAsistencia.done(function(event) {
         let oFecha = JSON.parse(event);
         let dFechaHoy = new Date().toISOString().slice(0, 10);
-        if (oFecha[0].dFecha == dFechaHoy) {
-          alert("Solo puede tomar una asistencia por dia");
-        }else if(oFecha == null){
+        if(oFecha == 'Error'){
+          tipoAsistencia = 1;
           $("#sNControlAsistencia").val(nControlSesion);
           $("#modalAsistencia").modal('show');
+        }else if (oFecha[0].dFecha == dFechaHoy) {
+          alert("Solo puede tomar una asistencia por dia");
         }else {
+          tipoAsistencia = 2;
           $("#sNControlAsistencia").val(oFecha[0].sNControl_Usuario);
           $("#modalAsistencia").modal('show');
         }
@@ -287,15 +294,17 @@
 
     //Funcion para registrar la asistencia por dia en la base de datos
     function enviarAsistencia() {
+      let sAsistencia = (tipoAsistencia == 1 ? 'insertarAsistencia' : 'actualizarAsistencia');
+      console.log(sAsistencia);
+
       if (document.getElementById('checkPresente').checked) {
         let ajaxAsistencia = $.ajax({
           type: "POST",
           datatype: "json",
           data: {
-            funcion: 'insertarAsistencia',
+            funcion: sAsistencia,
             NControl: nControlSesion,
             dFecha: new Date().toISOString().slice(0, 10)
-
           },
           url: "Controller/UsuarioController.php"
         });
