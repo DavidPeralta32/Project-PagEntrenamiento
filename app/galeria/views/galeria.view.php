@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="link-regresar">
-    <a href="../../entrenar/entrenar.php">Entrenar</a>
+    <a href="../../entrenar/index.php">Entrenar</a>
     </div>
 
     <div class="galeria">
@@ -18,7 +18,7 @@
         <?php foreach ($fotos as $foto): ?>
         <div class="fotos">
          <a href="foto.php?id=<?php echo $foto['id']; ?>">
-            <img src="../fotos/<?php echo $foto['imagen']; ?>" alt="">
+            <img src="../../entrenar/Evidencias/<?php echo $foto['imagen']; ?>" alt="">
         </a>
     </div>
     <?php endforeach ?>

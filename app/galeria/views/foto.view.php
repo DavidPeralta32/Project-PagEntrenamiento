@@ -20,7 +20,7 @@
     </header>
     <div class="contenedor-foto">
         <div class="foto">
-            <img src="../fotos/<?php echo $foto['imagen']; ?>" alt="">
+            <img src="../../entrenar/Evidencias/<?php echo $foto['imagen']; ?>" alt="">
             <p class="texto"><?php echo $foto['hora'];  ?></p>
             <a href="galeria.php" class="regresar"><i class="fa fa-long-arrow-left"></i> Regresar</a>
         </div>

@@ -102,6 +102,53 @@ function actualizarUsuario(){
         
     })}
 
+    function buscarUsuario(){
+        const sBuscarUsuario = document.querySelector("#sBuscar").value;
+        if(sBuscarUsuario != ''){
+        let ajaxBuscarUsuario = $.ajax({
+            type: "POST",
+            datatype: "JSON",
+            data: {
+                function : "buscarUsuario",
+                nControl: $("#sBuscar").val()
+            },
+            url : "../controller/indexController.php/buscarUsuarioControl"
+        });
+        ajaxBuscarUsuario.done(function(event){
+            const oDatos = JSON.parse(event);
+            if (oDatos != 'Error') {
+                $("#misUsuarios").empty();
+                $.each( oDatos ,function(index , obj){
+                    $("#misUsuarios").append("<tr>");
+                    $("#misUsuarios").append("<td>" + obj.idUsuarios + "</td>");
+                    $("#misUsuarios").append("<td>" + obj.nControl + "</td>");
+                    $("#misUsuarios").append("<td>" + obj.nombreUsuario + "</td>");
+                    $("#misUsuarios").append("<td>" + obj.apellidoUsuario + "</td>");
+                    $("#misUsuarios").append("<td>" + obj.passwordUsuario + "</td>");
+                    $("#misUsuarios").append("<td>" + obj.carrera + "</td>");
+                    $("#misUsuarios").append("<td>" + obj.disciplina + "</td>");
+                    $("#misUsuarios").append("<td>" + obj.asistencia + "</td>");
+                    $("#misUsuarios").append("<td> <input type='hidden' id='nIdUsuario_"+obj.idUsuarios+"' value="+ obj.idUsuarios + ">\n\
+                    <button type='button' onclick='verUsuario("+obj.idUsuarios+")' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalVerUsuario'> Ver </button>\n\
+                    <button type='button' onclick='editarUsuario("+obj.idUsuarios+")' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#modalEditarUsuario' style='color:white;' > Editar </button></td>");
+                    $("#misUsuarios").append("</tr>");
+                });
+            }else{
+                $("#misUsuarios").empty();
+                $("#misUsuarios").append("<tr><td colspan = '9'>No se encontro ningun registro</td></tr>");
+            }
+        });
+    }else{
+        
+    }
+    }
+
+    function limpiarBuscador(){
+        $("#sBuscar").val("");
+        $("#misUsuarios").empty();
+        listarUsuarios()
+    }
+
 
     //Menu hambuerguesa
 

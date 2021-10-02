@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 require_once '../../../Conexion/conexion.php';
 
-class UsuarioModel extends Conexion {
+class UsuarioModel extends Conexion
+{
 
     private $nIdUsuario;
     private $sNControl;
@@ -16,105 +17,129 @@ class UsuarioModel extends Conexion {
 
     public function __construct()
     {
-        parent:: __construct();
+        parent::__construct();
     }
 
-    public function listarUserId(){
+    public function listarUserId()
+    {
         $sControl = $this->getNControl();
         $aResultado = $this->conn->query("SELECT * from usuarios where nControl = '$sControl'");
         return $aResultado;
     }
 
-    public function insertarAsistencia(){
+    public function insertarAsistencia()
+    {
         $sControl = $this->getNControl();
         $dFecha = $this->getFechaAsistencia();
         $aResultado = $this->conn->query("UPDATE asistencia SET nAsistencia = nAsistencia + 1, dFecha= '$dFecha' WHERE sNControl_Usuario = '$sControl'");
         return $aResultado;
     }
 
-    public function verFechaAsistencia(){
+    public function verFechaAsistencia()
+    {
         $sControl = $this->getNControl();
         $aResultado = $this->conn->query("SELECT dFecha,sNControl_Usuario FROM asistencia WHERE sNControl_Usuario = '$sControl' ");
         return $aResultado;
     }
 
+    public function subirEvidencia($Foto, $hora)
+    {
+        $sControl = $this->getNControl();
+        $sFoto = $Foto;
+        $dhora = $hora;
+        $statement = $this->conn->query("INSERT INTO fotos(numControl,imagen,hora) values ('$sControl','$sFoto','$dhora')");
+        return $statement;
+    }
 
 
-    public function getIdUsuario() {
+
+    public function getIdUsuario()
+    {
         return $this->nIdUsuario;
     }
 
-    public function getNControl() {
+    public function getNControl()
+    {
         return $this->sNControl;
     }
 
-    public function getNombreUsuario() {
+    public function getNombreUsuario()
+    {
         return $this->sNombreUsuario;
     }
 
-    public function getApellioUsuario() {
+    public function getApellioUsuario()
+    {
         return $this->sApellidoUsuario;
     }
 
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->sPassword;
     }
 
-    public function getCarrera() {
+    public function getCarrera()
+    {
         return $this->sCarrera;
     }
 
-    public function getDisciplina() {
+    public function getDisciplina()
+    {
         return $this->sDisciplina;
     }
 
-    public function getAsistencia() {
+    public function getAsistencia()
+    {
         return $this->nAsistencia;
     }
 
-    public function getFechaAsistencia() {
+    public function getFechaAsistencia()
+    {
         return $this->dFechaAsistencia;
     }
 
-    public function setIdUsuario($nIdUsuario) {
+    public function setIdUsuario($nIdUsuario)
+    {
         $this->nIdUsuario = $nIdUsuario;
     }
 
-    public function setNControl($sNControl) {
+    public function setNControl($sNControl)
+    {
         $this->sNControl = $sNControl;
     }
 
-    public function setNombreUsuario($sNombreUsuario) {
+    public function setNombreUsuario($sNombreUsuario)
+    {
         $this->sNombreUsuario = $sNombreUsuario;
     }
 
-    public function setApellido($sApellidoUsuario) {
+    public function setApellido($sApellidoUsuario)
+    {
         $this->sApellidoUsuario = $sApellidoUsuario;
     }
 
-    public function setPassword($sPassword) {
+    public function setPassword($sPassword)
+    {
         $this->sPassword = $sPassword;
     }
 
-    public function setCarrera($sCarrera) {
+    public function setCarrera($sCarrera)
+    {
         $this->sCarrera = $sCarrera;
     }
 
-    public function setDisciplina($sDisciplina) {
+    public function setDisciplina($sDisciplina)
+    {
         $this->sDisciplina = $sDisciplina;
     }
 
-    public function setAsistencia($nAsistencia) {
+    public function setAsistencia($nAsistencia)
+    {
         $this->nAsistencia = $nAsistencia;
     }
 
-    public function setFechaAsistencia($dFechaAsistencia) {
+    public function setFechaAsistencia($dFechaAsistencia)
+    {
         $this->dFechaAsistencia = $dFechaAsistencia;
     }
-
-
 }
-
-
-
-?>

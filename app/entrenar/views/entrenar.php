@@ -34,16 +34,17 @@
           ?>
         </li>
         <li class="nav-item">
-          <a class='nav-link'><button style="background: none;border:none;color:white;" id="Perfil" onclick="ShowDatosPerfil()">Perfil</button></a>
+          <a class='nav-link'><button style="background: none;border:none;color:white;" id="Perfil" onclick="ShowDatosPerfil()"><i class="far fa-user-circle" style="font-size: 20px;"></i> Perfil</button></a>
         </li>
         <li class="nav-item">
-          <a class='nav-link' href="../galeria/controlador/subir.php"><button style="background: none;border:none;color:white;" id="Perfil" onclick="">Evidencia</button></a>
+          <a class='nav-link'><button style="background: none;border:none;color:white;" id="Perfil" onclick="showModalEvidencia()"><i class="far fa-file-image" style="font-size: 20px;"></i> Evidencia</button></a>
+          <!-- <a class='nav-link' href="../galeria/controlador/subir.php"><button style="background: none;border:none;color:white;" id="Perfil" onclick=""><i class="far fa-file-image" style="font-size: 20px;"></i> Evidencia</button></a> -->
         </li>
         <li class="nav-item">
-          <a class='nav-link'><button style="background: none;border:none;color:white;" id="btn_asistencia" onclick="showModalAsistencia()">Asistencia</button></a>
+          <a class='nav-link'><button style="background: none;border:none;color:white;" id="btn_asistencia" onclick="showModalAsistencia()"><i class="fas fa-list-ul" style="font-size: 20px;"></i> Asistencia</button></a>
         </li>
         <li class="nav-item">
-          <a class='nav-link' style='color:white' href="../login/cerrar.php">Cerrar Sesion</a>
+          <a class='nav-link' style='color:white' href="../login/cerrar.php"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i> Salir</a>
         </li>
 
       </ul>
@@ -139,12 +140,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="nombrePerfil"></h5>
+          <h5 class="modal-title" id="">Asistencia</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="contenedor-asistencia" style="width: 100%; display:flex;flex-wrap:wrap ;justify-content: center;">
-            <h1>Asistencia</h1>
             <p>Pase de asistencia, favor de introducir <strong>una asistencia por dia.</strong> </p>
 
             <form>
@@ -154,7 +154,7 @@
               </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="checkPresente" value="presente" checked>
-                <label class="form-check-label"  for="inlineCheckbox1">Presente</label>
+                <label class="form-check-label" for="inlineCheckbox1">Presente</label>
               </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" disabled>
@@ -179,13 +179,46 @@
 
   <!-- Fin modal asistencia -->
 
+  <!-- Modal Evidencia -->
+  <div class="modal fade" id="modalEvidencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Subir Evidencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="contenedor-galeria">
+            <div class="form-group">
+              <form class="formulario" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
+                <label for="">Selecciona una foto:</label>
+                <input type="file" name="foto" id="foto">
+                <label for="">Numero de control:</label>
+                <input type="text" name="nControlEvidencia" id="nControlEvidencia" readonly>
+                <label for="">Hora:</label>
+                <input type="text" name="hora" id="hora" placeholder="Ej: 17:00-18:00">
+
+                <button type="submit" onclick="" style="padding: 8px;background-color: green;color: white;border-radius: 5px;" class="btn btn-primary btn-sm">Subir</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start;">
+          <button type="button" class="btn btn-secondary" style="padding: 8px;background-color: red;color: white;border-radius: 5px;" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin modal evidencia -->
+
 
 
 
   <script>
-    /**variable que contiene el numero de control
-    el que se inicio sesion
-    */
+    /**
+     * variable que contiene el numero de control
+     * de quien inicio sesion
+     */
     var nControlSesion = <?php echo json_encode($usuario) ?>;
 
     /**
@@ -267,15 +300,49 @@
           let oRespuesta = JSON.parse(event);
           if (oRespuesta == true) {
             $("#modalAsistencia").modal('hide');
+            alert("Asistencia exitosa");
           } else {
             alert("Error al registrar su asistencia");
           }
         });
-      }else{
+      } else {
         alert("No ha seleccionado la asistencia");
       }
     }
+
+    function showModalEvidencia() {
+      $("#modalEvidencia").modal('show');
+      $("#nControlEvidencia").val(nControlSesion);
+    }
   </script>
+
+
+  <?php
+  include_once '../../db/conexion.php';
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
+    $check = @getimagesize($_FILES['foto']['tmp_name']);
+    if ($check !== false) {
+      $carpeta_destino = 'Evidencias/';
+      $archivo_subida = $carpeta_destino . $_FILES['foto']['name'];
+      move_uploaded_file($_FILES['foto']['tmp_name'], $archivo_subida);
+      $statement = $conexion->prepare('
+            INSERT INTO fotos(numControl,imagen,hora) 
+            values (:numControl,:imagen,:hora) ');
+
+      $statement->execute(array(
+        ':numControl' => $_POST['nControlEvidencia'],
+        ':imagen' => $_FILES['foto']['name'],
+        ':hora' => $_POST['hora']
+      ));
+      echo '<script type="text/javascript">
+        alert("Evidencia Guardada con exito!");
+        </script>';
+    } else {
+      $error .= "El archivo no es una imagen o el archivo es muy pesado";
+    }
+  }
+  ?>
+
   <!-- libreria moment -->
   <script src="../../includes/moment-develop/moment.js"></script>
 

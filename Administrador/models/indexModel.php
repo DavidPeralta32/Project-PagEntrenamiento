@@ -30,6 +30,14 @@ class indexModel extends Conexion{
         $this->conn->close();
     }
 
+    public function buscarUsuario($NControl){
+        $sNControl = $NControl;
+        $sql = "SELECT * FROM usuarios WHERE nControl = '$sNControl'";
+        $aResultado = $this->conn->query($sql);
+        return $aResultado;
+        
+    }
+
 }
 
 
