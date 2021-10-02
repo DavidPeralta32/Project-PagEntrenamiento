@@ -273,7 +273,10 @@
         let dFechaHoy = new Date().toISOString().slice(0, 10);
         if (oFecha[0].dFecha == dFechaHoy) {
           alert("Solo puede tomar una asistencia por dia");
-        } else {
+        }else if(oFecha == null){
+          $("#sNControlAsistencia").val(nControlSesion);
+          $("#modalAsistencia").modal('show');
+        }else {
           $("#sNControlAsistencia").val(oFecha[0].sNControl_Usuario);
           $("#modalAsistencia").modal('show');
         }
