@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/fondo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.contenedor-formulario{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form{
+    max-width: 600px;
+    width: 40%;
+    /* border-top: 3px solid #2036F7; */
+    padding: 15px;
+    text-align: center;
+    border: 1px solid black ;
+    border-radius: 20px;
+    /* font-size: 25px; */
+    background: rgb(57, 82, 112);
+    box-shadow: 5px 10px 5px black;
+   
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
+    width: 100%;
+}
+
+.form-group label{
+    font-size: 20px;
+}
+
+.form-imput{
+    background-color: rgb(53,53,53);
+    color: white;
+    border-radius: 50px;
+    border: 2px solid black;
+    font-size: 18px;
+    height: 40px;
+}
+
+.form-imput:hover{
+    border: 2px solid wheat;
+}
+
+.link-inicio{
+    color: white;
+}
+
+.link-inicio:hover{
+    color: white;
+}
+
+.btnRegistrar{
+    font-size: 18px;
+   /* width: 90px; */
+   height: 35px;
+   border-radius: 10px;
+   margin-bottom: 15px;
+   background: #0B86FF;
+   color: white;
+   cursor: pointer;
+}
+
+.btnRegistrar:hover{
+    opacity: 0.8;
+    color: black;
+}
+
+.footer-formulario{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 8px;
+}
+
+
+
+
