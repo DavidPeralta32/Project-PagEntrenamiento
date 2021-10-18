@@ -26,13 +26,25 @@
     width: 80px;
     font-size: 20px;
     border-radius: 15px;
-    background: rgb(17, 20, 209);
+    background: rgb(72, 72, 85);
     color: white;
     box-shadow: 4px 5px 5px black;
 }
 
 #btnBuscar:hover{
-    font-size: 22px;
+    cursor: pointer;
+}
+
+#btnLimpiar{
+    width: 80px;
+    font-size: 20px;
+    border-radius: 15px;
+    background: rgb(72, 72, 85);
+    color: white;
+    box-shadow: 4px 5px 5px black;
+}
+
+#btnLimpiar:hover{
     cursor: pointer;
 }
 
@@ -96,6 +108,28 @@ a{
 .cont-menu ul li:hover{
     background-color: rgb(228, 228, 228);
     color: rgb(42, 42, 42);
+
+}
+
+/* Galeria de imagenes en el modal de perfil */
+.colum-galeria img{
+    width: 45%;
+    padding-top: 5px;
+}
+.row-galeria{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: currentcolor;
+    
+}
+
+.colum-galeria{
+    flex: 100%;
+    justify-content: center;
+    padding-top: 5px;
+    margin-left: 28px;
 
 }
 

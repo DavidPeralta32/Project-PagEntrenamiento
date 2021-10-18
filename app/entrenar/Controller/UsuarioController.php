@@ -20,9 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             echo json_encode($oCUsuario->actualizarAsistenciaUsuario());
             break;
 
-
         case 'checarFechaAsistecia':
             echo json_encode($oCUsuario->verFechaAsistencia());
+            break;
+
+        case 'evidenciaUsuario':
+            echo json_encode($oCUsuario->evidenciaPorUsuario());
             break;
 
         default:
@@ -70,6 +73,20 @@ class UsuarioController
     {
         $this->oUsuario->setNControl($_POST['NControl']);
         $aResultado = $this->oUsuario->verFechaAsistencia();
+        $rowResul = mysqli_num_rows($aResultado);
+        if ($rowResul > 0) {
+            while ($row = $aResultado->fetch_assoc()) {
+                $aResul[] = $row;
+            }
+            return $aResul;
+        } else {
+            return 'Error';
+        }
+    }
+
+    public function evidenciaPorUsuario(){
+        $this->oUsuario->setNControl($_POST['NControl']);
+        $aResultado = $this->oUsuario->evidenciasPorUsuario();
         $rowResul = mysqli_num_rows($aResultado);
         if ($rowResul > 0) {
             while ($row = $aResultado->fetch_assoc()) {

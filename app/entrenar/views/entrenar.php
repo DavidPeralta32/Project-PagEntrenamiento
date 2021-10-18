@@ -37,7 +37,7 @@
           <a class='nav-link'><button style="background: none;border:none;color:white;" id="Perfil" onclick="ShowDatosPerfil()"><i class="far fa-user-circle" style="font-size: 20px;"></i> Perfil</button></a>
         </li>
         <li class="nav-item">
-          <a class='nav-link'><button style="background: none;border:none;color:white;" id="Perfil" onclick="showModalEvidencia()"><i class="far fa-file-image" style="font-size: 20px;"></i> Evidencia</button></a>
+          <a class='nav-link'><button style="background: none;border:none;color:white;" id="btnEvidencia" onclick="showModalEvidencia()"><i class="far fa-file-image" style="font-size: 20px;"></i> Evidencia</button></a>
           <!-- <a class='nav-link' href="../galeria/controlador/subir.php"><button style="background: none;border:none;color:white;" id="Perfil" onclick=""><i class="far fa-file-image" style="font-size: 20px;"></i> Evidencia</button></a> -->
         </li>
         <li class="nav-item">
@@ -103,8 +103,8 @@
           <h5 class="modal-title" id="nombrePerfil"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <div class="card" style="width: 100%;">
+        <div class="modal-body" style="display: flex; flex-direction: column;">
+          <div class="card" style="display:flex;width: 100%;">
             <img src="" class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title">Perfil del estudiante </h5>
@@ -124,6 +124,11 @@
 
                 </tbody>
               </table>
+            </div>
+          </div>
+          <div class="row-galeria">
+            <div class="colum-galeria" id="galeriaPerfil">
+
             </div>
           </div>
         </div>
@@ -212,8 +217,6 @@
   <!-- Fin modal evidencia -->
 
 
-
-
   <script>
     /**
      * variable que contiene el numero de control
@@ -257,7 +260,7 @@
             $("#tablaPerfil").append("<td style='color:black'>" + oDatos[i].disciplina + "</td>");
             $("#tablaPerfil").append("</tr>");
           }
-
+          evidenciasPorUsuario();
         }
       });
     }
@@ -276,13 +279,13 @@
       ajaxFechaAsistencia.done(function(event) {
         let oFecha = JSON.parse(event);
         let dFechaHoy = new Date().toISOString().slice(0, 10);
-        if(oFecha == 'Error'){
+        if (oFecha == 'Error') {
           tipoAsistencia = 1;
           $("#sNControlAsistencia").val(nControlSesion);
           $("#modalAsistencia").modal('show');
-        }else if (oFecha[0].dFecha == dFechaHoy) {
+        } else if (oFecha[0].dFecha == dFechaHoy) {
           alert("Solo puede tomar una asistencia por dia");
-        }else {
+        } else {
           tipoAsistencia = 2;
           $("#sNControlAsistencia").val(oFecha[0].sNControl_Usuario);
           $("#modalAsistencia").modal('show');
@@ -322,9 +325,38 @@
       }
     }
 
+
     function showModalEvidencia() {
+
       $("#modalEvidencia").modal('show');
       $("#nControlEvidencia").val(nControlSesion);
+    }
+
+    /**
+     * funcion para traer las fotos por nControl
+     */
+    function evidenciasPorUsuario() {
+      let ajaxEvidenciaPorUsuario = $.ajax({
+        type: "POST",
+        datatype: "JSON",
+        data: {
+          funcion: 'evidenciaUsuario',
+          NControl: nControlSesion
+        },
+        url: "Controller/UsuarioController.php"
+      });
+      ajaxEvidenciaPorUsuario.done(function(event) {
+        const oEvidencias = JSON.parse(event);
+        $("#galeriaPerfil").empty();
+        if (oEvidencias == 'Error') {
+          $("#galeriaPerfil").append("<h3 style='color:red;'>No tiene evidencias :(</h3>");
+        } else {
+          oEvidencias.forEach(evidencia => {
+            $("#galeriaPerfil").append("<img src='Evidencias/" + evidencia.imagen + "' alt=''>");
+          });
+
+        }
+      });
     }
   </script>
 

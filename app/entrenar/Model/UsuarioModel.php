@@ -49,6 +49,12 @@ class UsuarioModel extends Conexion
         return $aResultado;
     }
 
+    public function evidenciasPorUsuario(){
+        $sControl = $this->getNControl();
+        $aResultado = $this->conn->query("SELECT * FROM fotos WHERE numControl = '$sControl' ");
+        return $aResultado;
+    }
+
     
 
 

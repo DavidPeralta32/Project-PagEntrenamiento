@@ -19,7 +19,7 @@ function listarUsuarios(){
             $("#misUsuarios").append("<td>" + obj.carrera + "</td>");
             $("#misUsuarios").append("<td>" + obj.disciplina + "</td>");
             $("#misUsuarios").append("<td>" + obj.asistencia + "</td>");
-            $("#misUsuarios").append("<td> <input type='hidden' id='nIdUsuario_"+obj.idUsuarios+"' value="+ obj.idUsuarios + ">\n\
+            $("#misUsuarios").append("<td> <input type='hidden' id='nIdUsuario_"+obj.idUsuarios+"' value="+obj.nControl+ ">\n\
             <button type='button' onclick='verUsuario("+obj.idUsuarios+")' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalVerUsuario'> Ver </button>\n\
             <button type='button' onclick='editarUsuario("+obj.idUsuarios+")' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#modalEditarUsuario' style='color:white;' > Editar </button></td>");
             $("#misUsuarios").append("</tr>");
@@ -27,12 +27,13 @@ function listarUsuarios(){
     });
 }
 
-function verUsuario(nIdUsuario){
+function verUsuario(idUsuarios){
+    let nControl = $("#nIdUsuario_"+idUsuarios).val();
     let _ajaxVerUsuario = $.ajax({
         type: "POST",
         datatype : "json",
         data: {function : "verUsuario",
-                usuario: $("#nIdUsuario_"+nIdUsuario).val()
+                usuario: $("#nIdUsuario_"+idUsuarios).val()
             },
         url: '../controller/indexController.php/verUsuario'   
     });
@@ -40,12 +41,12 @@ function verUsuario(nIdUsuario){
         let oDatos = JSON.parse(event);
         if(oDatos.length != 0){
             $("#sNumControl").val(oDatos[0].nControl);
-             $("#sNombre").val(oDatos[0].nombreUsuario);
-              $("#sApellido").val(oDatos[0].apellidoUsuario);
-               $("#sCarrera").val(oDatos[0].carrera);
-                $("#nAsistencia").val(oDatos[0].asistencia);
-
+            $("#sNombre").val(oDatos[0].nombreUsuario);
+            $("#sApellido").val(oDatos[0].apellidoUsuario);
+            $("#sCarrera").val(oDatos[0].carrera);  
         }
+        totalEvidencias(nControl);
+        evidenciasPorUsuario(nControl);
     });
 }
 
@@ -72,10 +73,6 @@ function editarUsuario(nIdUsuario){
         }
     });
 }
-
-// $("#btnActualiar").click(function(){
-//     actualizarUsuario();
-// });
 
 function actualizarUsuario(){
     let _ajaxActuaizaUsuario = $.ajax({
@@ -128,7 +125,7 @@ function actualizarUsuario(){
                     $("#misUsuarios").append("<td>" + obj.carrera + "</td>");
                     $("#misUsuarios").append("<td>" + obj.disciplina + "</td>");
                     $("#misUsuarios").append("<td>" + obj.asistencia + "</td>");
-                    $("#misUsuarios").append("<td> <input type='hidden' id='nIdUsuario_"+obj.idUsuarios+"' value="+ obj.idUsuarios + ">\n\
+                    $("#misUsuarios").append("<td> <input type='hidden' id='nIdUsuario_"+obj.idUsuarios+"' value="+ obj.nControl + ">\n\
                     <button type='button' onclick='verUsuario("+obj.idUsuarios+")' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalVerUsuario'> Ver </button>\n\
                     <button type='button' onclick='editarUsuario("+obj.idUsuarios+")' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#modalEditarUsuario' style='color:white;' > Editar </button></td>");
                     $("#misUsuarios").append("</tr>");
@@ -149,6 +146,52 @@ function actualizarUsuario(){
         listarUsuarios()
     }
 
+    function totalEvidencias(sNcontrol){
+        let ajaxTotalEvidencias = $.ajax({
+            type: "POST",
+            datatype: "json",
+            data :{
+                function: 'totalEvidencias',
+                nControl: sNcontrol
+            },
+            url: "../controller/indexController.php/TotalEvidenciaYAsistencia"
+        });
+        ajaxTotalEvidencias.done(function(event){
+            const oTotal = JSON.parse(event);
+            if(oTotal != 'Error'){
+                $("#nAsistencia").val(oTotal[0].totalAsistencia);
+                $("#nEvidencias").val(oTotal[0].totalEvidencia);
+            }
+        });
+    }
+
+    /**
+     * funcion para traer las fotos por nControl
+     */
+     function evidenciasPorUsuario(nControl){
+        let ajaxEvidenciaPorUsuario =  $.ajax({
+          type: "POST",
+          datatype: "JSON",
+          data: {
+            funcion :'evidenciaUsuario',
+            NControl : nControl
+          },
+          url : "../../app/entrenar/Controller/UsuarioController.php"
+        });
+        ajaxEvidenciaPorUsuario.done(function(event){
+          const oEvidencias = JSON.parse(event);
+          $("#galeriaPerfil").empty();
+          if (oEvidencias == 'Error') {
+            $("#galeriaPerfil").append("<h3 style='color:red;'>No tiene evidencias :(</h3>");
+          }else{
+            oEvidencias.forEach(evidencia => {
+              $("#galeriaPerfil").append("<img src='../../app/entrenar/Evidencias/"+evidencia.imagen+"' alt=''>");
+            });
+            
+          }
+        });
+      }
+  
 
     //Menu hambuerguesa
 

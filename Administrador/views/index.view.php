@@ -53,7 +53,7 @@
               <th scope="col">Password</th>
               <th scope="col">Carrera</th>
               <th scope="col">Disciplina</th>
-              <th scope="col">Asistencia</th>
+              <th scope="col">Porcentaje</th>
               <th scope="col">Opciones</th>
             </tr>
           </thead>
@@ -93,12 +93,21 @@
                 <input type="text" class="form-control" id="sCarrera" readonly>
               </div>
               <div class="col-6">
-                <label for="exampleInputPassword1" class="form-label">Asistencia</label>
+                <label for="exampleInputPassword1" class="form-label">Total Asistencias</label>
                 <input type="text" class="form-control" id="nAsistencia" readonly>
+              </div>
+              <div class="col-6">
+                <label for="exampleInputPassword1" class="form-label">Total Evidencias</label>
+                <input type="text" class="form-control" id="nEvidencias" readonly>
               </div>
             </div>
 
           </form>
+          <div class="row-galeria">
+            <div class="colum-galeria" id="galeriaPerfil">
+              
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>

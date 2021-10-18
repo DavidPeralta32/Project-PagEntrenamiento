@@ -26,6 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         case 'buscarUsuario':
             echo json_encode($oCIndexController->buscarUsuarioControl());
             break;
+        case 'totalEvidencias':
+            echo json_encode($oCIndexController->TotalEvidenciaYAsistencia());
+            break;
         default:
             # code...
             break;
@@ -93,13 +96,28 @@ class indexController
 
         $aResultado = $this->oIndex->buscarUsuario($nControl);
         $rowResul = mysqli_num_rows($aResultado);
-        if($rowResul > 0){
+        if ($rowResul > 0) {
             while ($rows = $aResultado->fetch_assoc()) {
                 $aResul[] = $rows;
             }
             return $aResul;
-        }else{
+        } else {
             return 'Error';
-        }  
+        }
+    }
+
+    public function TotalEvidenciaYAsistencia()
+    {
+        $nControl = $_POST['nControl'];
+        $aResultado = $this->oIndex->totalAsistenciaYEvidencia($nControl);
+        $rowResul = mysqli_num_rows($aResultado);
+        if ($rowResul > 0) {
+            while ($rows = $aResultado->fetch_assoc()) {
+                $aResul[] = $rows;
+            }
+            return $aResul;
+        } else {
+            return 'Error';
+        }
     }
 }

@@ -24,7 +24,7 @@ class indexModel extends Conexion{
     }
 
     public function verUsuario($nIdUsuario){
-        $sql = "SELECT * FROM usuarios WHERE idUsuarios = '$nIdUsuario'";
+        $sql = "SELECT * FROM usuarios WHERE nControl = '$nIdUsuario'";
         $aResultado = $this->conn->query($sql);
         return $aResultado;
         $this->conn->close();
@@ -36,6 +36,12 @@ class indexModel extends Conexion{
         $aResultado = $this->conn->query($sql);
         return $aResultado;
         
+    }
+
+    public function totalAsistenciaYEvidencia($NControl){
+        $sNControl = $NControl;
+        $sql = " SELECT u.ncontrol, a.nAsistencia as totalAsistencia , COUNT(f.imagen) as totalEvidencia from usuarios as u INNER JOIN asistencia as a ON a.sNControl_Usuario = u.nControl INNER JOIN fotos as f ON f.numControl = u.nControl WHERE u.nControl = '$sNControl'";
+        return $aResultado = $this->conn->query($sql);
     }
 
 }
