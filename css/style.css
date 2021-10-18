@@ -236,15 +236,19 @@ justify-content: space-around;
 /* footer */
 
 footer{
+    width: 100%;
     background: #f2f2f2;
     padding: 60px;
     overflow: hidden ;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: auto;
+    margin: 0;
 }
 .partfooter{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 20%;
     text-align: center;
 
@@ -274,6 +278,13 @@ footer{
     width: 70%;
 }
 
+.social-media{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+
 .social-media i{
     font-size: 20px;
     display: inline-block;
@@ -294,6 +305,40 @@ footer{
     color: #fff;
     background-color: #1FDE82;
 }
+
+/* visibilidad del footer */
+.inactivo{
+    position: fixed;
+    bottom: -100%;
+}
+
+#footerPag{
+    width: 100%;
+}
+
+.btn-flotante {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    /* background-color: var(--claro); */
+    -webkit-box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    /* color: var(--obscuro); */
+    text-decoration: none;
+}
+
+#btnFooter{
+    text-align: center;
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
 /* carrucel de fotos */
 .contenedor-carrucel{
     padding: 10px;

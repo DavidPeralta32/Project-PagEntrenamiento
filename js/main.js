@@ -28,3 +28,20 @@ document.querySelectorAll(".hamburguer")[0].addEventListener("click",function(){
     }
     enlacesHeader.classList.toggle("menudos")
 })
+
+
+const footer = document.querySelector('.footer');
+const btnfooter = document.querySelector('.btn-flotante');
+const linkfooter = document.querySelector('.linkfooter');
+console.log(footer.classList);
+
+btnfooter.addEventListener('click', () => {
+    if(footer.classList.contains('inactivo')){
+        footer.classList.remove('inactivo');
+        linkfooter.href = '#footerPag';
+    }else{
+        footer.classList.add('inactivo');
+        
+    }
+});
+
